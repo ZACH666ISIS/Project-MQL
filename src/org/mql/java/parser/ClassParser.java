@@ -12,7 +12,6 @@ public class ClassParser {
 	private List<Class> cls;
 	
 	public ClassParser(String path) {
-		
 		cls = new ClassExplorer(path).getFoundedClasses();
 		classes = new Vector<>();
 	}
@@ -33,9 +32,7 @@ public class ClassParser {
 							List.of(c.getInterfaces())						
 						)			
 			);
-
-		}
-		
+		}	
 		return true;
 	}
 	
@@ -46,10 +43,8 @@ public class ClassParser {
 		}
 		if(c.getSuperclass().getCanonicalName().equals("java.lang.Object")) {
 			return null;
-		}
-		
-		return c.getSuperclass();	
-		
+		}	
+		return c.getSuperclass();		
 	}
 
 	private ClassType getType(Class c) {

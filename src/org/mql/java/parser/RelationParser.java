@@ -1,16 +1,16 @@
 package org.mql.java.parser;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.List;
 import java.util.Vector;
-
 import org.mql.java.models.Cardinal;
 import org.mql.java.models.ClassModel;
 import org.mql.java.models.ClassType;
 import org.mql.java.models.Relation;
 import org.mql.java.models.RelationType;
+
+@SuppressWarnings("rawtypes")
 
 public class RelationParser {
 
@@ -70,6 +70,14 @@ public class RelationParser {
 						);
 	}
 	
+	public List<ClassModel> getClasses() {
+		return classes;
+	}
+
+	public List<Relation> getRelations() {
+		return relations;
+	}
+
 	SimpleEntry<Cardinal, String> fieldType(Field f) {
 		String type = f.getGenericType().getTypeName();	
 		if(type.contains("<") && type.contains(">")) {
@@ -131,14 +139,6 @@ public class RelationParser {
 				etablishRelations(classes.get(i), classes.get(j));
 			}
 		}
-		
-		System.out.println("---------------------------------------------------------------------------------------------------");
-		
-		for(Relation r : relations) {
-			System.out.println(r);
-		}
-		
-		System.out.println("---------------------------------------------------------------------------------------------------");
 		
 	}
 	

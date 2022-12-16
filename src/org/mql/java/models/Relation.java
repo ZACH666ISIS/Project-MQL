@@ -6,12 +6,6 @@ public class Relation {
 	private Cardinal firstCard, secondCard;
 	private RelationType type;
 	
-	
-	
-	public Relation() {
-		super();
-	}
-
 
 	public Relation(ClassModel first, ClassModel second, Cardinal firstCard, Cardinal secondCard, RelationType type) {
 		super();
@@ -21,6 +15,37 @@ public class Relation {
 		this.secondCard = secondCard;
 		this.type = type;
 	}
+
+	
+	public ClassModel getFirst() {
+		return first;
+	}
+
+
+	public ClassModel getSecond() {
+		return second;
+	}
+
+
+	public Cardinal getFirstCard() {
+		return firstCard;
+	}
+
+
+	public Cardinal getSecondCard() {
+		return secondCard;
+	}
+
+
+	public RelationType getType() {
+		return type;
+	}
+
+
+	public Relation() {
+		super();
+	}
+
 
 
 	public String toString() {
