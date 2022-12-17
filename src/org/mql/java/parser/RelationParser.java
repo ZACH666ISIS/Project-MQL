@@ -65,9 +65,13 @@ public class RelationParser {
 	private void  setAssociationsRel(ClassModel c1,ClassModel c2) {
 		Cardinal cardinal = searchAssociation(c1,c2),
 				 secCardinal = searchAssociation(c2,c1);
-				relations.add(
-						new Relation(c1, c2, cardinal , secCardinal , RelationType.ASSOCIATION)
-						);
+		
+		if(cardinal != Cardinal.NONE && secCardinal != Cardinal.NONE) {
+			relations.add(
+					new Relation(c1, c2, cardinal , secCardinal , RelationType.ASSOCIATION)
+					);
+		}
+			
 	}
 	
 	public List<ClassModel> getClasses() {
@@ -102,7 +106,6 @@ public class RelationParser {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 	

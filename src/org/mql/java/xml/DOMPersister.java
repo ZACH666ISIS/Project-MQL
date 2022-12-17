@@ -2,7 +2,6 @@ package org.mql.java.xml;
 
 import java.io.File;
 import java.util.List;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Result;
@@ -10,7 +9,6 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import org.mql.java.models.Cardinal;
 import org.mql.java.models.ClassModel;
 import org.mql.java.models.Relation;
@@ -24,7 +22,9 @@ import org.w3c.dom.NodeList;
 public class DOMPersister {
 	
 	private Document document;
-	Element root;
+	Element root,
+			struct,
+			relationsElm;
 	public DOMPersister(List<ClassModel> classes, List<Relation> relations) {
 		init();
 		fillPackages(classes);
@@ -39,28 +39,29 @@ public class DOMPersister {
 			DocumentBuilder builder =  factory.newDocumentBuilder();
 			document =builder.newDocument();
 			root = document.createElement("diagram");
-			
+			struct = document.createElement("struct");
+			relationsElm = document.createElement("relations");
 		} catch (Exception e) {}
 	
 	}
 	
 	private void fillPackages(List<ClassModel> classes) {
 		for(ClassModel c : classes) {
-			createClass(c);
+			struct.appendChild(createClass(c));
 		}
+		root.appendChild(struct);
 	}
 	
 	private void fillRelations(List<Relation> relations) {
-		Element rel = document.createElement("relations");
 		for(Relation r : relations) {
 			Element relation = document.createElement("relation");
 			relation.setAttribute("type", r.getType().name());
 			relation.appendChild(createClassRelation(r.getFirst(),r.getFirstCard()));
 			relation.appendChild(createClassRelation(r.getSecond(),r.getSecondCard()));
-			rel.appendChild(relation);
+			relationsElm.appendChild(relation);
 		}
 		
-		root.appendChild(rel);
+		root.appendChild(relationsElm);
 	}
 	
 	private Element createClassRelation(ClassModel c , Cardinal card) {
@@ -81,12 +82,13 @@ public class DOMPersister {
 		
 	}
 	
-	public void createClass(ClassModel c) {
+	public Element createClass(ClassModel c) {
 		Element pkg = createPackage(c.getClassPackage().getName());
 		Element cls = document.createElement("class");
 		cls.setAttribute("name", c.getName());
 		cls.setAttribute("type", c.getType().name());
 		pkg.appendChild(cls);
+		return pkg;
 
 	}
 	
@@ -101,12 +103,11 @@ public class DOMPersister {
 	}
 	
 	public Element searchPackage(String name) {
-		NodeList list = root.getChildNodes();
+		NodeList list = struct.getChildNodes();
 		for(int i=0;i<list.getLength();i++) {
 			if(list.item(i).getNodeName().equals("package"))
 				if(attribute(list.item(i),"name").equals(name))
 					return (Element) list.item(i);
-					
 		}
 		return null;
 	}
