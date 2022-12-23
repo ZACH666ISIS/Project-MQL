@@ -28,9 +28,6 @@ public class RelationParser {
 	}
 	
 	
-	
-	
-	
 	private boolean isInHeritance(ClassModel c1, ClassModel c2) {
 		if(c2.getExtended() == null)
 			return false;
@@ -137,8 +134,8 @@ public class RelationParser {
 	
 	
 	private void wired() {
-		for(int i=0;i<classes.size();i++) {
-			for(int j = i ; j<classes.size();j++) {
+		for(int i=0;i<classes.size()-1;i++) {
+			for(int j = i+1 ; j<classes.size();j++) {
 				etablishRelations(classes.get(i), classes.get(j));
 			}
 		}

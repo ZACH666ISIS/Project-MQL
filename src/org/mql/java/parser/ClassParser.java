@@ -1,6 +1,7 @@
 package org.mql.java.parser;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.Vector;
 import org.mql.java.models.ClassModel;
 import org.mql.java.models.ClassType;
@@ -10,6 +11,7 @@ public class ClassParser {
 
 	private List<ClassModel> classes;
 	private List<Class> cls;
+
 	
 	public ClassParser(String path) {
 		cls = new ClassExplorer(path).getFoundedClasses();
@@ -20,9 +22,13 @@ public class ClassParser {
 		if(cls==null) 
 			return false;
 		for(Class c : cls) {
+			
+			
 			classes.add(
 					new ClassModel(
+							c.getCanonicalName().hashCode(),
 							c.getCanonicalName(),
+							c.getSimpleName(),
 							getType(c),
 							getExtends(c),
 							c.getPackage(),
@@ -52,6 +58,8 @@ public class ClassParser {
 			return ClassType.INTERFACE;
 		else if(c.isEnum())
 			return ClassType.ENUM;
+		else if(c.isPrimitive())
+			return ClassType.DATATYPE;
 		else
 			return ClassType.DEFAULT;
 	}

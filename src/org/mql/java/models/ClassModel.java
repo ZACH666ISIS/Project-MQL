@@ -8,7 +8,17 @@ import java.util.List;
 @SuppressWarnings("rawtypes")
 public class ClassModel {
 
-	private String name;
+	private int id;
+	private String name,
+				   simpleName;
+	public String getSimpleName() {
+		return simpleName;
+	}
+
+	public void setSimpleName(String simpleName) {
+		this.simpleName = simpleName;
+	}
+
 	private ClassType type;
 	private Class extended;
 	private Package classPackage;
@@ -22,12 +32,14 @@ public class ClassModel {
 
 	}
 		
-	public ClassModel(String name) {
+	public ClassModel(int id) {
 		super();
-		this.name = name;
+		this.id = id;
 	}
 	
-	public ClassModel(String name,
+	public ClassModel(int id,
+					  String name,
+					  String simpleName,
 					  ClassType type,
 					  Class extended,
 					  Package classPackage,
@@ -36,7 +48,9 @@ public class ClassModel {
 					  List<Method> methods,
 					  List<Class> implemented) {
 		super();
+		this.id = id;
 		this.name = name;
+		this.simpleName = simpleName;
 		this.type = type;
 		this.extended = extended;
 		this.classPackage = classPackage;
@@ -44,6 +58,14 @@ public class ClassModel {
 		this.constructors = constructors;
 		this.methods = methods;
 		this.implemented = implemented;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Package getClassPackage() {
