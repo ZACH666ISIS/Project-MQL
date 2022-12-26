@@ -11,6 +11,7 @@ public class ClassParser {
 
 	private List<ClassModel> classes;
 	private List<Class> cls;
+	private UUID id;
 
 	
 	public ClassParser(String path) {
@@ -47,8 +48,8 @@ public class ClassParser {
 		if(c.getSuperclass() == null) {
 			return null;
 		}
-		if(c.getSuperclass().getCanonicalName().equals("java.lang.Object")) {
-			return null;
+		if(c.getSuperclass().getSuperclass().getCanonicalName().equals("java.lang.Object")) {
+			return c;
 		}	
 		return c.getSuperclass();		
 	}

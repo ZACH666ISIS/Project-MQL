@@ -1,5 +1,5 @@
 package demo.mql.java.enums;
 
-public enum AttributeModificator {
+public enum Visibility {
 	DEFAULT,PUBLIC,PROTECTED,PRIVATE
 }

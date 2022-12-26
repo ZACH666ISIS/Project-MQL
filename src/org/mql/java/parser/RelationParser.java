@@ -71,27 +71,6 @@ public class RelationParser {
 			
 	}
 	
-	public List<ClassModel> getClasses() {
-		return classes;
-	}
-
-	public List<Relation> getRelations() {
-		return relations;
-	}
-
-	SimpleEntry<Cardinal, String> fieldType(Field f) {
-		String type = f.getGenericType().getTypeName();	
-		if(type.contains("<") && type.contains(">")) {
-			type= type.substring(type.indexOf("<")+1, type.lastIndexOf(">"));
-			return new SimpleEntry<Cardinal, String>(Cardinal.UNBOUNDED , type);
-		}
-		else if(type.contains("[]")) {
-			type = type.replace("[]", "");
-			return new SimpleEntry<Cardinal, String>(Cardinal.UNBOUNDED, type);
-		}
-		return new SimpleEntry<Cardinal, String>(Cardinal.ONCE, type);
-	}
-	
 	
 	
 	boolean isImplementation(ClassModel c1,ClassModel c2) {
@@ -142,6 +121,29 @@ public class RelationParser {
 		
 	}
 	
+
+	public static SimpleEntry<Cardinal, String> fieldType(Field f) {
+		String type = f.getGenericType().getTypeName();	
+		if(type.contains("<") && type.contains(">")) {
+			type= type.substring(type.indexOf("<")+1, type.lastIndexOf(">"));
+			return new SimpleEntry<Cardinal, String>(Cardinal.UNBOUNDED , type);
+		}
+		else if(type.contains("[]")) {
+			type = type.replace("[]", "");
+			return new SimpleEntry<Cardinal, String>(Cardinal.UNBOUNDED, type);
+		}
+		return new SimpleEntry<Cardinal, String>(Cardinal.ONCE, type);
+	}
+	public List<ClassModel> getClasses() {
+		return classes;
+	}
+
+	public List<Relation> getRelations() {
+		return relations;
+	}
+
+
+
 	
 	
 	
