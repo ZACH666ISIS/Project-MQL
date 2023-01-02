@@ -7,8 +7,9 @@ public class PackageModel {
 
 	private long id;
 	private String name;
-	private List<EModel> classes;
-	
+	private List<ClassModel> classes;
+	private List<InterfaceModel> interfaces;
+	private List<EnumModel> enumes;
 	
 	
 	public PackageModel(long id) {
@@ -17,17 +18,37 @@ public class PackageModel {
 	public PackageModel(long id,String name) {
 		this.id = id;
 		this.name = name;
-		classes = new Vector<EModel>();
+		classes = new Vector<>();
+		interfaces = new Vector<>();
+		enumes = new Vector<>();
 	}
 	
-	public PackageModel(long id,String name,List<EModel> classes) {
+	public PackageModel(long id,String name,List<ClassModel> classes, List<InterfaceModel> interfaces, List<EnumModel> enumes) {
 		this.id = id;
 		this.name = name;
 		this.classes = classes;
+		this.interfaces =interfaces;
+		this.enumes = enumes;
 	}
 	
-	public boolean addClass(EModel c) {
+	public boolean addClass(ClassModel c) {
 		return classes.add(c);
+	}
+	public boolean addClasses(List<ClassModel> newClasses) {
+		return classes.addAll(newClasses);
+	}
+	
+	public boolean addEnum(EnumModel e) {
+		return enumes.add(e);
+	}
+	public boolean addEnumes(List<EnumModel> newEnums) {
+		return enumes.addAll(newEnums);
+	}
+	public boolean addInterface(InterfaceModel intrf) {
+		return interfaces.add(intrf);
+	}
+	public boolean addInterfaces(List<InterfaceModel> newInterfaces) {
+		return interfaces.addAll(newInterfaces);
 	}
 	
 	public long getId() {
@@ -46,11 +67,23 @@ public class PackageModel {
 		this.name = name;
 	}
 	
-	public List<EModel> getClasses() {
+	public List<ClassModel> getClasses() {
 		return classes;
 	}
-	public void setClasses(List<EModel> classes) {
+	public void setClasses(List<ClassModel> classes) {
 		this.classes = classes;
+	}
+	public List<InterfaceModel> getInterfaces() {
+		return interfaces;
+	}
+	public void setInterfaces(List<InterfaceModel> interfaces) {
+		this.interfaces = interfaces;
+	}
+	public List<EnumModel> getEnumes() {
+		return enumes;
+	}
+	public void setEnumes(List<EnumModel> enumes) {
+		this.enumes = enumes;
 	}
 	
 	

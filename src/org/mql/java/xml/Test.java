@@ -1,16 +1,9 @@
 package org.mql.java.xml;
 
-import java.io.*;
-import java.util.*;
-import org.eclipse.emf.ecore.*;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.*;
-import org.eclipse.emf.ecore.resource.impl.*;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
-import org.mql.java.parser.ClassParser;
 
-import demo.mql.java.models.EModel;
+import demo.mql.java.models.EnumModel;
 import demo.mql.java.models.PackageModel;
+import demo.mql.java.models.ClassModel;
 import demo.mql.java.parser.ProjectParser;
 public class Test {
 
@@ -22,15 +15,19 @@ public class Test {
 		ProjectParser c = new ProjectParser("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin");
 		c.parse();
 		for(PackageModel p : c.getPackages()) {
-			System.out.println("-->"+p.getId() +"  : name = "+  p.getName()+"  {");
-			for(EModel e : p.getClasses()) {
-				System.out.println(e.getId() +"   : name = "+e.getSimpleName() +" visibility = "+e.getVisibility());
+			System.out.println("-->"+p.getId() +"  : name = "+  p.getName()+"  [");
+			for(ClassModel e : p.getClasses()) {
+				System.out.println("xsi:id = "+e.getId()+" visibility = "+e.getVisibility()+"  name = "+e.getSimpleName()+" Extends = "+e.getExtended());
+				}
+			for(EnumModel e : p.getEnumes()) {
+				System.out.println("xsi:id = "+e.getId()+" visibility = "+e.getVisibility()+"  name = "+e.getSimpleName());
+				System.out.println(e.getElements());
+				}
+			
 			}
-			System.out.println("}");
+			System.out.println("]");
 		}
-		;
-	
-	}
+		
 	
 	
 	public static void main(String[] args) {

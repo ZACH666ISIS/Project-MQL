@@ -1,16 +1,14 @@
 package org.mql.java.example;
 
-
-import java.lang.reflect.Field;
 import java.util.List;
-
-import org.mql.java.models.ClassModel;
 import org.mql.java.models.Relation;
-import org.mql.java.parser.ClassExplorer;
 import org.mql.java.parser.ClassParser;
 import org.mql.java.parser.RelationParser;
-import org.mql.java.xml.DOMPersister;
+import org.mql.java.ui.MainFrame;
 import org.mql.java.xml.XMIPersister;
+
+import demo.mql.java.models.PackageModel;
+import demo.mql.java.parser.ProjectParser;
 
 /**
  * @author Zach
@@ -20,7 +18,7 @@ public class Example {
 
 	
 	public Example(){
-		exp01();
+		exp02();
 	}
 	
 	void exp01() {
@@ -31,8 +29,15 @@ public class Example {
 
 	}
 	
-	void exp03() {
+	void exp02() {
+		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\eclipse-workspace\\JTraining\\bin");
+		p.parse();
+		new demo.mql.java.xml.XMIPersister(p.getPackages());
 
+	}
+	
+	void exp03() {
+		new MainFrame();
 	}
 	
 	public static void main(String[] args) {

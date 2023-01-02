@@ -2,47 +2,81 @@ package demo.mql.java.models;
 
 import java.util.List;
 
-import demo.mql.java.enums.EModificator;
+import demo.mql.java.enums.EModifiers;
 import demo.mql.java.enums.Visibility;
 
 
-public class InterfaceModel extends EModel{
+public class InterfaceModel {
 	
+	private long id;
+	private String name,
+				   simpleName;
+	private Visibility visibility;
+	private EModifiers modificator;
 	private List<InterfaceModel> extentedInterface;
 	private List<MethodModel> methods;
 	
 	
 	public InterfaceModel(int id, List<InterfaceModel> extentedInterface) {
-		super(id);
+		this.id=id;
 		this.extentedInterface = extentedInterface;
 	}
 	public InterfaceModel(long id, String name, String simpleName, Visibility visibility,
-			EModificator modificator) {
-		super(id, name, simpleName, visibility, modificator);
+			EModifiers modificator) {
+		this.id=id;
+		this.name=name;
+		this.simpleName=simpleName;
+		this.visibility =visibility;
+		this.modificator = modificator;
 	}
 	
 	public InterfaceModel(long id, String name, String simpleName, Visibility visibility,
-			EModificator modificator,
+			EModifiers modificator,
 			List<InterfaceModel> extentedInterface , List<MethodModel> methods) {
-		super(id, name, simpleName, visibility, modificator);
+		this.id=id;
+		this.name=name;
+		this.simpleName=simpleName;
+		this.visibility =visibility;
+		this.modificator = modificator;
 		this.extentedInterface = extentedInterface;
 		this.methods = methods;
 	}
 	public InterfaceModel(long id, String name, String simpleName, Visibility visibility,
-			EModificator modificator,
+			EModifiers modificator,
 			 List<MethodModel> methods) {
-		super(id, name, simpleName, visibility, modificator);
+		this.id=id;
+		this.name=name;
+		this.simpleName=simpleName;
+		this.visibility =visibility;
+		this.modificator = modificator;
 		this.methods = methods;
 	}
 
 
 	public InterfaceModel(int id, List<InterfaceModel> extentedInterface , List<MethodModel> methods) {
-		super(id);
+		this.id = id;
 		this.extentedInterface = extentedInterface;
 		this.methods = methods;
 	}
 
 
+	
+	
+	public long getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public String getSimpleName() {
+		return simpleName;
+	}
+	public Visibility getVisibility() {
+		return visibility;
+	}
+	public EModifiers getModificator() {
+		return modificator;
+	}
 	public List<InterfaceModel>  getExtentedInterface() {
 		return extentedInterface;
 	}

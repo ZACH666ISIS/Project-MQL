@@ -2,7 +2,7 @@ package demo.mql.java.models;
 
 
 
-import demo.mql.java.enums.EModificator;
+import demo.mql.java.enums.EModifiers;
 import demo.mql.java.enums.Visibility;
 
 public class Attribute {
@@ -10,7 +10,7 @@ public class Attribute {
 	private long id;
 	private String name;
 	private String type;
-	private EModificator modificator;
+	private EModifiers modifiers;
 	private Visibility visibility;
 	private boolean isList;
 	private long idRef;
@@ -20,14 +20,14 @@ public class Attribute {
 		this.id = id;
 	}
 	
-	public Attribute(long id, String name, String type, EModificator modificator, Visibility visibility,
+	public Attribute(long id, String name, String type, EModifiers modifiers, Visibility visibility,
 			boolean isList,
 			long idRef) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.type = type;
-		this.modificator = modificator;
+		this.modifiers =  modifiers;
 		this.visibility = visibility;
 		this.isList = isList;
 		this.idRef = idRef;
@@ -38,6 +38,12 @@ public class Attribute {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public long getIdRef() {
+		return idRef;
+	}
+	public void setIdRef(long idRef) {
+		this.idRef = idRef;
 	}
 	public String getName() {
 		return name;
@@ -51,11 +57,11 @@ public class Attribute {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public EModificator getModificator() {
-		return modificator;
+	public EModifiers getModificator() {
+		return modifiers;
 	}
-	public void setModificator(EModificator modificator) {
-		this.modificator = modificator;
+	public void setModificator(EModifiers modifiers) {
+		this.modifiers = modifiers;
 	}
 	public Visibility getVisibility() {
 		return visibility;
