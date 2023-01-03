@@ -8,6 +8,7 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
@@ -185,10 +186,10 @@ public class Converter {
 			return EMethods;
 		}
 		
-		private static HashMap<String,String> getParameter(Parameter[] parameterz){
-			LinkedHashMap<String, String> params = new LinkedHashMap<String, String>(); 
+		private static List<String> getParameter(Parameter[] parameterz){
+			List<String> params = new Vector<String>(); 
 			for(Parameter p : parameterz) {
-				params.put(p.getName(), p.getType().getCanonicalName());
+				params.add(p.getType().getCanonicalName());
 			}
 			return params;
 		}

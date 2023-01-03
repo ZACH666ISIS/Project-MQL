@@ -85,8 +85,6 @@ public class PackageModel {
 	public void setEnumes(List<EnumModel> enumes) {
 		this.enumes = enumes;
 	}
-	
-	
 
 	
 }

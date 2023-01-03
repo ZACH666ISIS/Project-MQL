@@ -1,6 +1,6 @@
 package demo.mql.java.models;
 
-import java.util.HashMap;
+import java.util.List;
 
 import demo.mql.java.enums.EModifiers;
 import demo.mql.java.enums.Visibility;
@@ -11,12 +11,12 @@ public class MethodModel{
 	private String name;
 	private Visibility visibility;
     private EModifiers modifier;
-	private HashMap<String,String> parameters;
 	private String returnType;
+	private List<String> parameters;
 	
 
 	public MethodModel(long id,String name, Visibility visibility, EModifiers modifier,
-			HashMap<String, String> parameters, String returnType) {
+			List<String> parameters, String returnType) {
 		this.id = id;
 		this.name = name;
 		this.visibility = visibility;
@@ -81,14 +81,14 @@ public class MethodModel{
 
 
 
-	public HashMap<String, String> getParameters() {
+	public List<String> getParameters() {
 		return parameters;
 	}
 
 
 
 
-	public void setParameters(HashMap<String, String> parameters) {
+	public void setParameters(List<String> parameters) {
 		this.parameters = parameters;
 	}
 

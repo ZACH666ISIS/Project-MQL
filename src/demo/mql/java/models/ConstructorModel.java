@@ -1,6 +1,6 @@
 package demo.mql.java.models;
 
-import java.util.HashMap;
+import java.util.List;
 
 import demo.mql.java.enums.EModifiers;
 import demo.mql.java.enums.Visibility;
@@ -10,13 +10,13 @@ public class ConstructorModel{
 	private long id;
 	private Visibility visibility;
     private EModifiers modifier;
-	private HashMap<String,String> parameters;
+	private List<String> parameters;
 	
 	public ConstructorModel(long id) {
 		this.id=id;
 	}
 
-	public ConstructorModel(long id, Visibility visibility, EModifiers modifier, HashMap<String, String> parameters) {
+	public ConstructorModel(long id, Visibility visibility, EModifiers modifier, List<String> parameters) {
 		super();
 		this.id = id;
 		this.visibility = visibility;
@@ -48,11 +48,11 @@ public class ConstructorModel{
 		this.modifier = modifier;
 	}
 
-	public HashMap<String, String> getParameters() {
+	public List<String> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(HashMap<String, String> parameters) {
+	public void setParameters(List<String> parameters) {
 		this.parameters = parameters;
 	}
 	

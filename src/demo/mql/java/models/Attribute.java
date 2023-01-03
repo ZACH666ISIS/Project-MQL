@@ -14,6 +14,7 @@ public class Attribute {
 	private Visibility visibility;
 	private boolean isList;
 	private long idRef;
+
 	
 	public Attribute(long id) {
 		super();
