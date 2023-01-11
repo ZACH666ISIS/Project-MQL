@@ -10,6 +10,7 @@ public class PackageModel {
 	private List<ClassModel> classes;
 	private List<InterfaceModel> interfaces;
 	private List<EnumModel> enumes;
+	private List<PackageModel> packages;
 	
 	
 	public PackageModel(long id) {
@@ -21,14 +22,24 @@ public class PackageModel {
 		classes = new Vector<>();
 		interfaces = new Vector<>();
 		enumes = new Vector<>();
+		packages = new Vector<>();
 	}
 	
-	public PackageModel(long id,String name,List<ClassModel> classes, List<InterfaceModel> interfaces, List<EnumModel> enumes) {
+	public PackageModel(long id,String name,List<ClassModel> classes, List<InterfaceModel> interfaces, List<EnumModel> enumes,
+			List<PackageModel> packages) {
 		this.id = id;
 		this.name = name;
 		this.classes = classes;
 		this.interfaces =interfaces;
 		this.enumes = enumes;
+		this.packages= packages;
+	}
+	
+	public boolean addPackage(PackageModel p) {
+		return packages.add(p);
+	}
+	public boolean addPackagees(List<PackageModel> newPackages) {
+		return packages.addAll(newPackages);
 	}
 	
 	public boolean addClass(ClassModel c) {
@@ -84,6 +95,12 @@ public class PackageModel {
 	}
 	public void setEnumes(List<EnumModel> enumes) {
 		this.enumes = enumes;
+	}
+	public List<PackageModel> getPackages() {
+		return packages;
+	}
+	public void setPackages(List<PackageModel> packageModel) {
+		this.packages = packageModel;
 	}
 
 	

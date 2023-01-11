@@ -8,13 +8,13 @@ import demo.mql.java.enums.Visibility;
 
 
 public class ClassModel {
-	
+
 	private long id;
 	private String name,
 				   simpleName;
 	private Visibility visibility;
 	private EModifiers modificator;
-	private List<Attribute> attribute;
+	private List<Attribute> attributes;
 	private List<ConstructorModel> constructors;
 	private List<MethodModel> methods;
 	private List<InterfaceModel> implemented;
@@ -42,7 +42,7 @@ public class ClassModel {
 			List<InterfaceModel> implemented,
 			ClassModel extended) {
 		this.id=id;
-		this.attribute = attribute;
+		this.attributes = attribute;
 		this.constructors = constructors;
 		this.methods = methods;
 		this.implemented = implemented;
@@ -65,7 +65,7 @@ public class ClassModel {
 		this.simpleName=simpleName;
 		this.visibility =visibility;
 		this.modificator = modificator;
-		this.attribute = attribute;
+		this.attributes = attribute;
 		this.constructors = constructors;
 		this.methods = methods;
 		this.implemented = implemented;
@@ -134,11 +134,11 @@ public class ClassModel {
 
 
 
-	public List<Attribute> getAttribute() {
-		return attribute;
+	public List<Attribute> getAttributes() {
+		return attributes;
 	}
 	public void setAttribute(List<Attribute> attribute) {
-		this.attribute = attribute;
+		this.attributes = attribute;
 	}
 	public List<ConstructorModel> getConstructors() {
 		return constructors;
@@ -167,7 +167,10 @@ public class ClassModel {
 		this.extended = extended;
 	}
 
-
+	public String toString() {
+		return "ClassModel [id=" + id + ", name=" + name + ", simpleName=" + simpleName + ", extended=" + extended
+				+ "]";
+	}
 
 	
 	

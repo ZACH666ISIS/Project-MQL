@@ -1,7 +1,7 @@
 package org.mql.java.parser;
 
 import java.util.List;
-import java.util.UUID;
+//import java.util.UUID;
 import java.util.Vector;
 import org.mql.java.models.ClassModel;
 import org.mql.java.models.ClassType;
@@ -11,7 +11,7 @@ public class ClassParser {
 
 	private List<ClassModel> classes;
 	private List<Class> cls;
-	private UUID id;
+//	private UUID id;
 
 	
 	public ClassParser(String path) {

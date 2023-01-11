@@ -1,5 +1,6 @@
 package org.mql.java.example;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -8,7 +9,10 @@ import org.mql.java.parser.ClassParser;
 import org.mql.java.parser.RelationParser;
 import org.mql.java.ui.MainFrame;
 import org.mql.java.xml.XMIPersister;
+
 import demo.mql.java.parser.ProjectParser;
+import demo.mql.java.xml.ObjectPersister;
+
 
 /**
  * @author Zach
@@ -30,9 +34,11 @@ public class Example {
 	}
 	
 	void exp02() {
-		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\eclipse-workspace\\ProblemSolving\\bin");
+		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin");
 		p.parse();
-		new demo.mql.java.xml.XMIPersister(p.getPackages());
+		ObjectPersister persister = new ObjectPersister(new File("resources/document.xml"));
+		persister.addObjects(p.getPackages());
+		persister.save();
 
 	}
 	

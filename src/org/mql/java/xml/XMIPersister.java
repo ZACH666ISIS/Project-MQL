@@ -16,13 +16,11 @@ import javax.xml.transform.stream.StreamResult;
 import org.mql.java.models.Cardinal;
 import org.mql.java.models.ClassModel;
 import org.mql.java.models.Relation;
-import org.mql.java.parser.RelationParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 
 public class XMIPersister {
 	
@@ -106,20 +104,8 @@ public class XMIPersister {
 	}
 	
 	
-	public Element createElm(Object o) {
-		Class c = o.getClass();
-		return null;
-	}
-	
-	private Element fillField(Field[] fields) {
-		Element e = document.createElement("ownedAttribute");
-		for(Field f : fields) {
-			
-			
-		}
-		
-		return null;
-	}
+
+
 	
 	private Element fillClasses(Field f) {
 		Element field = document.createElement("ownedAttribute");

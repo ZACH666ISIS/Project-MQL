@@ -1,7 +1,5 @@
 package demo.mql.java.models;
 
-
-
 import demo.mql.java.enums.EModifiers;
 import demo.mql.java.enums.Visibility;
 
