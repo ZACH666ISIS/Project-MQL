@@ -7,7 +7,6 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.List;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Result;
@@ -15,11 +14,8 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
 import org.w3c.dom.Text;
 
 
@@ -31,7 +27,6 @@ public class ObjectPersister {
 	private File file;
 	
 	public ObjectPersister() {
-
 	}
 
 	public ObjectPersister(File file) {
@@ -47,19 +42,20 @@ public class ObjectPersister {
 			factory.setNamespaceAware(true);
 			DocumentBuilder builder =  factory.newDocumentBuilder();
 			document =builder.newDocument();
-			root = document.createElement("uml:Model");
+			root = document.createElement("Project");
 		} catch (Exception e) {}
 	
+	}	
+//	private void addObjects(List<?> o) {
+//		root.appendChild(createObjects(o,o.getClass().getSimpleName()));
+//	}
+	public void addObjects(List<?> o,String s) {
+		root.appendChild(createObjects(o,s));
 	}
-	
-	public void addObjects(List<?> o) {
-		root.appendChild(createObjects(o,o.getClass().getSimpleName()));
-	}
-	
+
 	public void addObject(Object o) {
 		root.appendChild(createObject(o));
 	}
-	
 	public void save() {
 		createFile();
 	}
@@ -143,10 +139,11 @@ public class ObjectPersister {
 	private Element createObjects(List<?> objects,String name) {
 		Element e = document.createElement(name);
 		for(Object o : objects) {	
-					Element elm = createObject(o);
-					if(elm != null)
-						e.appendChild(elm);
-			}
+			Element elm = createObject(o);
+			if(elm != null) {
+				e.appendChild(elm);
+			}			
+		}
 			return e;
 	}
 	
@@ -170,10 +167,6 @@ public class ObjectPersister {
 		return null;
 	}
 	
-	public String attribute(Node node,String name) {
-		NamedNodeMap atts =node.getAttributes();
-		return atts.getNamedItem(name).getNodeValue();
-	}
 	
 
 }

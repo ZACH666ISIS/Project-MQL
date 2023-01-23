@@ -22,14 +22,14 @@ public class ProjectParser {
 		if(cls.isEmpty()) 
 			return false;
 		for(Class c : cls) {	
-			addClassPackage(c);
+			addClassToPackage(c);
 		}	
 		return true;
 	}
 	
 	
 	
-	private void addClassPackage(Class c){
+	private void addClassToPackage(Class c){
 		PackageModel p = toPackageModel(c.getPackage());
 		if(checkPackages(p,packageModels)){
 			p = getPackage(p, packageModels);
@@ -44,15 +44,12 @@ public class ProjectParser {
 	private void addClass(PackageModel p , Class c) {
 		if(c.isEnum()) {
 			p.addEnum(toEnumModel(c));
-			return ; 
 		}
 		else if(c.isInterface()) {
 			 p.addInterface(toInterfaceModel(c));	
-			 return ;
 		}
 		else {
 			p.addClass(toClassModel(c));
-			return ;
 		}
 	}
 	
@@ -63,6 +60,7 @@ public class ProjectParser {
 		 pkgs.add(p);
 		 return p;
 	}
+	
 	
 	
 	private List<PackageModel> getSubPackages(PackageModel p, List<PackageModel> packages) {
@@ -83,8 +81,7 @@ public class ProjectParser {
 					packages.remove(pkg);
 					return packages;
 				}
-				else {
-					if(!pkg.getPackages().isEmpty())
+				else if(!pkg.getPackages().isEmpty()) {
 						getSubPackages(p, pkg.getPackages());
 				}
 			}

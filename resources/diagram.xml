@@ -1,1 +1,70 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><diagram><struct><package name="demo.mql.java.enums"><class name="demo.mql.java.enums.AttributeModificator" type="ENUM"/><class name="demo.mql.java.enums.ClassType" type="ENUM"/></package><package name="demo.mql.java.models"><class name="demo.mql.java.models.Attribute" type="DEFAULT"/><class name="demo.mql.java.models.ClassModel" type="DEFAULT"/><class name="demo.mql.java.models.ConstructorModel" type="DEFAULT"/><class name="demo.mql.java.models.InterfaceModel" type="DEFAULT"/><class name="demo.mql.java.models.MethodModel" type="DEFAULT"/></package><package name="org.mql.java.example"><class name="org.mql.java.example.Example" type="DEFAULT"/></package><package name="org.mql.java.models"><class name="org.mql.java.models.Cardinal" type="ENUM"/><class name="org.mql.java.models.ClassModel" type="DEFAULT"/><class name="org.mql.java.models.ClassType" type="ENUM"/><class name="org.mql.java.models.Relation" type="DEFAULT"/><class name="org.mql.java.models.RelationType" type="ENUM"/></package><package name="org.mql.java.parser"><class name="org.mql.java.parser.ClassExplorer" type="DEFAULT"/><class name="org.mql.java.parser.ClassParser" type="DEFAULT"/><class name="org.mql.java.parser.RelationParser" type="DEFAULT"/></package><package name="org.mql.java.xml"><class name="org.mql.java.xml.DOMPersister" type="DEFAULT"/><class name="org.mql.java.xml.XMIPersister" type="DEFAULT"/></package></struct><relations><relation type="ASSOCIATION"><class card="ONCE" name="demo.mql.java.enums.AttributeModificator"/><class card="ONCE" name="demo.mql.java.enums.AttributeModificator"/></relation><relation type="ASSOCIATION"><class card="ONCE" name="demo.mql.java.enums.ClassType"/><class card="ONCE" name="demo.mql.java.enums.ClassType"/></relation><relation type="ASSOCIATION"><class card="ONCE" name="demo.mql.java.models.Attribute"/><class card="UNBOUNDED" name="demo.mql.java.models.ClassModel"/></relation><relation type="GENERALIZATION"><class card="NONE" name="demo.mql.java.models.ConstructorModel"/><class card="NONE" name="demo.mql.java.models.MethodModel"/></relation><relation type="ASSOCIATION"><class card="ONCE" name="org.mql.java.models.Cardinal"/><class card="ONCE" name="org.mql.java.models.Cardinal"/></relation><relation type="ASSOCIATION"><class card="ONCE" name="org.mql.java.models.ClassType"/><class card="ONCE" name="org.mql.java.models.ClassType"/></relation><relation type="ASSOCIATION"><class card="ONCE" name="org.mql.java.models.RelationType"/><class card="ONCE" name="org.mql.java.models.RelationType"/></relation></relations></diagram>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram>
+	<struct>
+		<package name="demo.mql.java.enums">
+			<class name="demo.mql.java.enums.AttributeModificator"
+				type="ENUM" />
+			<class name="demo.mql.java.enums.ClassType" type="ENUM" />
+		</package>
+		<package name="demo.mql.java.models">
+			<class name="demo.mql.java.models.Attribute" type="DEFAULT" />
+			<class name="demo.mql.java.models.ClassModel" type="DEFAULT" />
+			<class name="demo.mql.java.models.ConstructorModel"
+				type="DEFAULT" />
+			<class name="demo.mql.java.models.InterfaceModel"
+				type="DEFAULT" />
+			<class name="demo.mql.java.models.MethodModel" type="DEFAULT" />
+		</package>
+		<package name="org.mql.java.example">
+			<class name="org.mql.java.example.Example" type="DEFAULT" />
+		</package>
+		<package name="org.mql.java.models">
+			<class name="org.mql.java.models.Cardinal" type="ENUM" />
+			<class name="org.mql.java.models.ClassModel" type="DEFAULT" />
+			<class name="org.mql.java.models.ClassType" type="ENUM" />
+			<class name="org.mql.java.models.Relation" type="DEFAULT" />
+			<class name="org.mql.java.models.RelationType" type="ENUM" />
+		</package>
+		<package name="org.mql.java.parser">
+			<class name="org.mql.java.parser.ClassExplorer" type="DEFAULT" />
+			<class name="org.mql.java.parser.ClassParser" type="DEFAULT" />
+			<class name="org.mql.java.parser.RelationParser" type="DEFAULT" />
+		</package>
+		<package name="org.mql.java.xml">
+			<class name="org.mql.java.xml.DOMPersister" type="DEFAULT" />
+			<class name="org.mql.java.xml.XMIPersister" type="DEFAULT" />
+		</package>
+	</struct>
+	<relations>
+		<relation type="ASSOCIATION">
+			<class card="ONCE"
+				name="demo.mql.java.enums.AttributeModificator" />
+			<class card="ONCE"
+				name="demo.mql.java.enums.AttributeModificator" />
+		</relation>
+		<relation type="ASSOCIATION">
+			<class card="ONCE" name="demo.mql.java.enums.ClassType" />
+			<class card="ONCE" name="demo.mql.java.enums.ClassType" />
+		</relation>
+		<relation type="ASSOCIATION">
+			<class card="ONCE" name="demo.mql.java.models.Attribute" />
+			<class card="UNBOUNDED" name="demo.mql.java.models.ClassModel" />
+		</relation>
+		<relation type="GENERALIZATION">
+			<class card="NONE" name="demo.mql.java.models.ConstructorModel" />
+			<class card="NONE" name="demo.mql.java.models.MethodModel" />
+		</relation>
+		<relation type="ASSOCIATION">
+			<class card="ONCE" name="org.mql.java.models.Cardinal" />
+			<class card="ONCE" name="org.mql.java.models.Cardinal" />
+		</relation>
+		<relation type="ASSOCIATION">
+			<class card="ONCE" name="org.mql.java.models.ClassType" />
+			<class card="ONCE" name="org.mql.java.models.ClassType" />
+		</relation>
+		<relation type="ASSOCIATION">
+			<class card="ONCE" name="org.mql.java.models.RelationType" />
+			<class card="ONCE" name="org.mql.java.models.RelationType" />
+		</relation>
+	</relations>
+</diagram>

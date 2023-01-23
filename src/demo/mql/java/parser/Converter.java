@@ -6,11 +6,16 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 import java.util.Vector;
+
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import demo.mql.java.enums.EModifiers;
 import demo.mql.java.enums.Visibility;
@@ -26,6 +31,7 @@ import demo.mql.java.models.PackageModel;
 public class Converter {
 	
 	
+		
 		public static ClassModel toClassModel(Class c) {
 		
 			
@@ -80,7 +86,7 @@ public class Converter {
 						getModificator(f),
 						getVisibility(f),
 						isList(f),
-						idGenerator(f.getGenericType().getTypeName())
+						idGenerator(getGenericType(f))
 						);		
 			
 		}
@@ -98,7 +104,7 @@ public class Converter {
 		
 		private static ConstructorModel toConstructorModel(Constructor c){
 			return new ConstructorModel(
-						idGenerator(c),/*id not important*/
+						positiveNumber(UUID.randomUUID().getMostSignificantBits()),/*id not important*/
 						getVisibility(c.getModifiers()),
 						getModificator(c.getModifiers()),
 						getParameter(c.getParameters())
@@ -148,6 +154,46 @@ public class Converter {
 			return false;
 		}
 		
+		public static String getGenericType(Field f) {
+			String type = f.getGenericType().getTypeName();	
+			if(List.class.isAssignableFrom(f.getType())){				
+				type = type.substring(type.indexOf("<")+1, type.indexOf(">"));
+			}
+			return type;
+		}
+		public static String getGenericType(Parameter p) {
+			String type = p.getType().getCanonicalName();
+			if(List.class.isAssignableFrom(p.getType())){				
+				type = type.substring(type.indexOf("<")+1, type.indexOf(">"));
+			}
+			return type;
+		}
+		
+		public static EClassifier nativeType(Class p) {
+			if(p.isPrimitive()) {
+				if(p.getCanonicalName().equals("int"))
+					return EcorePackage.Literals.EINT;
+				if(p.getCanonicalName().equals("long"))
+					return EcorePackage.Literals.ELONG;
+				if(p.getCanonicalName().equals("double"))
+					return EcorePackage.Literals.EDOUBLE;
+				if(p.getCanonicalName().equals("short"))
+					return EcorePackage.Literals.ESHORT;
+				if(p.getCanonicalName().equals("boolean"))
+					return EcorePackage.Literals.EBOOLEAN;
+				if(p.getCanonicalName().equals("float"))
+					return EcorePackage.Literals.EFLOAT;
+				
+			}
+			else {
+				if(p.getCanonicalName().equals("java.lang.String"))
+					return EcorePackage.Literals.ESTRING;
+				if(p.getCanonicalName().equals("java.lang.Date"))
+					return EcorePackage.Literals.EDATE;
+			}
+			//throw
+			return null;
+		}
 		private static List<Attribute> getFields(Field[] fields){
 			List<Attribute> EAttributes = new Vector<Attribute>();
 			for(Field f : fields) {
@@ -214,7 +260,12 @@ public class Converter {
 		}
 		
 		public static long idGenerator(Object o) {	
-			return o.hashCode()*10;
+			return positiveNumber(o.hashCode());
+		}
+		
+		private static long positiveNumber(long n) {
+			//compare binary of (hashcode of object) with (0b11111111111)
+			return n &  0xfffffff;
 		}
 
 }

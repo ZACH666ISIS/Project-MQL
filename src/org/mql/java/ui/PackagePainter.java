@@ -14,6 +14,13 @@ public class PackagePainter {
 	private List<ClassData> classes;
 	private PrintedArea area;
 	
+	
+	/**
+	 * 
+	 * charger les données men xml f model de data
+	 * 
+	 */
+	
 	public PackagePainter(PackageData p,PrintedArea area) {
 		this.packageName = p.getPackageName();
 		this.classes = p.getClasses();
@@ -25,25 +32,15 @@ public class PackagePainter {
 	public void paintPackage(Graphics g) {
 		int x0 = area.getX() - 15,
 			y0 = area.getY() - 15;
-
-		PointLiaison p1 = null,p2= null ;
 	
 		ClassPainter cp;
-		int i=0;
 		for(ClassData cls : classes) {
 			cp = new ClassPainter(cls, area);
-			if(i==0) {
-				p1 = cp.getLiaison();
-			}
-			if(i==2) {
-				p2 = cp.getLiaison();
-			}
 			cp.paintClass(g);
-			i++;
+	
 		}
 
-		g.drawLine(p1.getXRigth(), p1.getYRigth(),p2.getXLeft(),p2.getYLeft());
-		g.setColor(Color.red);
+		g.setColor(Color.getHSBColor((float)Math.random()*100, (float)Math.random()*10, (float)Math.random()*100));
 		g.drawRect(x0 , y0 , area.getMaxX() + 10, area.getMaxY() +10 );
 		
 	}

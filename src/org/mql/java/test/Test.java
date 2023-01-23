@@ -7,11 +7,9 @@ public class Test {
 	}
 	
 	void exp01() {
-		String s1 = "org.mql.java.inter",
-			   s2 = "org.mql.java.inter.wst",
-			   s3 = "org.mql.java.inter.wst.inter";
-		System.out.println(s1.contains(s2));
-		System.err.println(s2.contains(s3));
+		int i= -1005;
+		
+		System.out.println(i & 0xfffffff);
 	}
 	public static void main(String[] args) {
 		new Test();

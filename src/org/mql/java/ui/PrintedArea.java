@@ -37,8 +37,6 @@ public class PrintedArea {
 			refXe = 40;
 			refYe = maxYe;
 		}
-		
-		
 	}
 	
 	public void newPackage(int refXe, int refYe) {
