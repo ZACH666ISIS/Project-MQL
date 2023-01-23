@@ -12,7 +12,7 @@ public class PackageModel {
 	private List<EnumModel> enumes;
 	private List<PackageModel> packages;
 	
-	
+
 	public PackageModel(long id) {
 		this.id = id;
 	}

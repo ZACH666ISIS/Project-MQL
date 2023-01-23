@@ -82,7 +82,7 @@ public class Converter {
 			return new Attribute(
 						idGenerator(f),
 						f.getName(),
-						f.getGenericType().getTypeName(),
+						getGenericType(f),
 						getModificator(f),
 						getVisibility(f),
 						isList(f),
@@ -156,16 +156,18 @@ public class Converter {
 		
 		public static String getGenericType(Field f) {
 			String type = f.getGenericType().getTypeName();	
-			if(List.class.isAssignableFrom(f.getType())){				
+			if(type.contains("<") && type.contains(">")){				
 				type = type.substring(type.indexOf("<")+1, type.indexOf(">"));
 			}
+			type = type.replace("[", "").replace("]", "");
 			return type;
 		}
 		public static String getGenericType(Parameter p) {
 			String type = p.getType().getCanonicalName();
-			if(List.class.isAssignableFrom(p.getType())){				
+			if(type.contains("<") && type.contains(">")){				
 				type = type.substring(type.indexOf("<")+1, type.indexOf(">"));
 			}
+			type = type.replace("[", "").replace("]", "");
 			return type;
 		}
 		
@@ -243,7 +245,7 @@ public class Converter {
 		private static List<InterfaceModel> getInterfaces(Class c){
 			List<InterfaceModel> interfaces = new Vector<InterfaceModel>();
 			for(Class intrF  : c.getInterfaces()) {
-				interfaces.add(toInterfaceModel(c));		
+				interfaces.add(toInterfaceModel(intrF));		
 			}
 			return interfaces;
 		}

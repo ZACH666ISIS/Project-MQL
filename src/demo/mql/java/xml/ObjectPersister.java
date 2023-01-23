@@ -61,8 +61,6 @@ public class ObjectPersister {
 	}
 	private void createFile() {
 		try {
-			root.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xmi","http://www.omg.org/XMI");
-			root.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:uml","http://www.eclipse.org/uml2/1.0.0/UML");
 			document.appendChild(root);
 			Result res = new StreamResult(file);
 			DOMSource source = new DOMSource(document);

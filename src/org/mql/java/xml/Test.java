@@ -1,13 +1,5 @@
 package org.mql.java.xml;
 
-
-import demo.mql.java.models.EnumModel;
-import demo.mql.java.models.MethodModel;
-import demo.mql.java.models.PackageModel;
-import demo.mql.java.parser.ProjectParser;
-import demo.mql.java.parser.XMIParserS;
-import demo.mql.java.xml.XMIPersister;
-
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +22,7 @@ public class Test {
 		exp1();
 	}
 	
-
-
+	
 	void exp1(){
 		EcoreFactory ecoreFactory = EcoreFactory.eINSTANCE;
 		EPackage aPackage = ecoreFactory.createEPackage();

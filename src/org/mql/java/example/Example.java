@@ -6,10 +6,10 @@ import java.util.List;
 
 import org.mql.java.models.Relation;
 import org.mql.java.parser.ClassParser;
-import org.mql.java.parser.RelationParser;
+import demo.mql.java.parser.RelationsParser;
 import org.mql.java.ui.MainFrame;
 
-
+import demo.mql.java.models.ProjectModel;
 import demo.mql.java.parser.ProjectParser;
 import demo.mql.java.xml.ObjectPersister;
 import demo.mql.java.xml.XMIPersister;
@@ -23,14 +23,21 @@ public class Example {
 
 	
 	public Example(){
-		exp04();
+		exp01();
 	}
 	
 	void exp01() {
-//		ClassParser c = new ClassParser("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin");
-//		c.parse();
-//		List<Relation> l = new RelationParser(c.getClasses()).getRelations();
-//		new XMIPersister(c.getClasses(), l);
+		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\eclipse-workspace\\JTraining\\bin");
+		p.parse();
+		RelationsParser rp = new RelationsParser();
+		rp.setPackages(p.getPackages());
+		rp.etablishRelations();
+		ProjectModel model = new ProjectModel();
+		model.setAssociation(rp.getAssociations());
+		model.setPackages(p.getPackages());
+		ObjectPersister persister = new ObjectPersister(new File("resources/document.xml"));
+		persister.addObject(model);
+		persister.save();
 
 	}
 	
