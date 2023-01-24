@@ -4,11 +4,13 @@ import java.util.List;
 
 public class PackageData {
 	
+	private long id;
 	private String packageName;
 	private List<ClassData> classes;
 	
-	public PackageData() {
+	public PackageData(long id) {
 		super();
+		this.id = id;
 	}
 	
 	
@@ -30,6 +32,8 @@ public class PackageData {
 	public void setClasses(List<ClassData> classes) {
 		this.classes = classes;
 	}
+
+
 
 	
 }

@@ -3,12 +3,15 @@ package org.mql.java.ui.models;
 import java.util.List;
 
 public class ClassData {
+	
+	private long id;
 	private String className;
 	private List<String> fields;
 	private List<String> methods;
 	
-	public ClassData() {
+	public ClassData(long id) {
 		super();
+		this.id = id;
 	}
 	
 /*

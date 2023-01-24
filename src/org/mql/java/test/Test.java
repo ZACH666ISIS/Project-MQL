@@ -1,5 +1,7 @@
 package org.mql.java.test;
 
+import org.mql.java.ui.loader.XMLLoader;
+
 public class Test {
 	
 	public Test() {
@@ -7,9 +9,7 @@ public class Test {
 	}
 	
 	void exp01() {
-		int i= -1005;
-		
-		System.out.println(i & 0xfffffff);
+		XMLLoader loader = new XMLLoader("resources/document.xml");
 	}
 	public static void main(String[] args) {
 		new Test();

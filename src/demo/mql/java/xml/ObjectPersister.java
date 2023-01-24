@@ -42,18 +42,20 @@ public class ObjectPersister {
 			factory.setNamespaceAware(true);
 			DocumentBuilder builder =  factory.newDocumentBuilder();
 			document =builder.newDocument();
-			root = document.createElement("Project");
 		} catch (Exception e) {}
 	
 	}	
 //	private void addObjects(List<?> o) {
 //		root.appendChild(createObjects(o,o.getClass().getSimpleName()));
 //	}
-	public void addObjects(List<?> o,String s) {
+	private void addObjects(List<?> o,String s) {
 		root.appendChild(createObjects(o,s));
 	}
 
-	public void addObject(Object o) {
+	public void setObject(Object o) {
+			root = createObject(o);	
+	}
+	private void addObject(Object o) {
 		root.appendChild(createObject(o));
 	}
 	public void save() {

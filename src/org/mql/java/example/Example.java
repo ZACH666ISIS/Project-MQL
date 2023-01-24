@@ -36,19 +36,19 @@ public class Example {
 		model.setAssociation(rp.getAssociations());
 		model.setPackages(p.getPackages());
 		ObjectPersister persister = new ObjectPersister(new File("resources/document.xml"));
-		persister.addObject(model);
+		persister.setObject(model);
 		persister.save();
 
 	}
 	
-	void exp02() {
-		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin");
-		p.parse();
-		ObjectPersister persister = new ObjectPersister(new File("resources/document.xml"));
-		persister.addObjects(p.getPackages(),"packages");
-		persister.save();
-
-	}
+//	void exp02() {
+//		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin");
+//		p.parse();
+//		ObjectPersister persister = new ObjectPersister(new File("resources/document.xml"));
+//		persister.addObjects(p.getPackages(),"packages");
+//		persister.save();
+//
+//	}
 	
 	void exp03() {
 		new MainFrame();
