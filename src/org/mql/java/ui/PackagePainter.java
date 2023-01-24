@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.mql.java.ui.models.ClassData;
 import org.mql.java.ui.models.PackageData;
-import org.mql.java.ui.models.PointLiaison;
 
 public class PackagePainter {
 	
@@ -25,6 +24,7 @@ public class PackagePainter {
 		this.packageName = p.getPackageName();
 		this.classes = p.getClasses();
 		this.area = area;
+		;
 	}
 	
 	
@@ -39,9 +39,8 @@ public class PackagePainter {
 			cp.paintClass(g);
 	
 		}
-
-		g.setColor(Color.getHSBColor((float)Math.random()*100, (float)Math.random()*10, (float)Math.random()*100));
-		g.drawRect(x0 , y0 , area.getMaxX() + 10, area.getMaxY() +10 );
+		g.drawString(packageName, x0, y0);
+		g.drawRect(x0 , y0 , area.getMaxX() + 10,  area.getMaxY()-y0 +10 );
 		
 	}
 	

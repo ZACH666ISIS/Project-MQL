@@ -8,23 +8,15 @@ import org.mql.java.ui.models.PackageData;
 
 public class XMLLoader {
 
-	List<PackageData> packages;
+	private List<PackageData> packages;
+	private DataFormater formater;
+
+
 	public XMLLoader(String source) {
 		packages  = new Vector<>();
 		XMLNode root = new XMLNode(source);
 		XMLNode pkgs[] = root.child("packages").children();
 		packageData(pkgs);
-		
-		packages.stream().forEach((e)->{
-			System.out.println(e.getPackageName());
-			System.err.println("-------------------");
-			e.getClasses().forEach((c)-> {
-				System.out.println(c.getClassName());
-				System.err.println(c.getFields());
-				System.out.println(c.getMethods());
-			});
-			System.err.println("-------------------");
-		});
 		
 	}
 	
@@ -61,13 +53,9 @@ public class XMLLoader {
 	private List<String> fieldData(XMLNode[] fields){
 		List<String> data = new Vector<>();
 		for(XMLNode field : fields) {
-			StringBuffer s = new StringBuffer(field.child("visibility").value()+" ");
-			s.append(field.attribute("name")+" : "+field.attribute("type"));
-			boolean b = Boolean.valueOf(field.attribute("isList"));
-			if(b) {
-				s.append("[]");
-			}
-			data.add(s.toString());
+			formater = new FieldFormater();
+			String s = formater.data(field);
+			data.add(s);
 		}
 		return data;
 	}
@@ -75,22 +63,21 @@ public class XMLLoader {
 	private List<String> operationData(XMLNode[] methods){
 		List<String> data = new Vector<>();
 		for(XMLNode m : methods) {
-			StringBuffer s = new StringBuffer(m.child("visibility").value()+" ");
-			String params = "";
-			if(m.child("parameters") != null) {
-				params = parameterData(m.child("parameters").children());
-			}
-			s.append(m.attribute("name")+" ( "+params+") : "+m.attribute("returnType"));
-			data.add(s.toString());
+			formater = new MethodFormater();
+			String s = formater.data(m);
+			data.add(s);
 		}
 		return data;
 	}
 	
-	private String parameterData(XMLNode[] parameters) {
-		StringBuffer parameterz = new StringBuffer(" ");
-		for(XMLNode p : parameters) {
-			parameterz.append(p.value()+"; ");
-		}
-		return parameterz.toString();
+
+	
+	public List<PackageData> getPackages() {
+		return packages;
+	}
+
+
+	public void setPackages(List<PackageData> packages) {
+		this.packages = packages;
 	}
 }

@@ -9,6 +9,7 @@ public class PrintedArea {
 	private int maxYe,maxXe;
 	private Dimension dim;
 	
+
 	public PrintedArea(int refXe, int refYe , Dimension dim) {
 		this(refXe,refYe,dim,0,0);
 		this.refXe = refXe;
@@ -28,9 +29,12 @@ public class PrintedArea {
 	
 
 	public void set(int width,int height) {
-		refXe += width + 20;
-		if((height + refYe ) > maxYe ) maxYe = (height + refYe );
-		if((width + refXe) > maxXe ) maxXe = refXe + width ;
+		refXe += width + 30;
+		if((height + refYe ) > maxYe ) {
+			maxYe = refYe + height;
+			dim.height = maxYe;
+		}
+		if((width + refXe) > maxXe ) maxXe += width + 50 ;
 		
 		if(refXe >= dim.width) {
 			maxXe = refXe;
@@ -77,5 +81,13 @@ public class PrintedArea {
 	public int getMaxX() {
 		return maxXe;
 	}
+	
+	public Dimension getDim() {
+		return dim;
+	}
+	public void setDim(Dimension dim) {
+		this.dim = dim;
+	}
+	
 
 }

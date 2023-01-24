@@ -1,6 +1,7 @@
 package org.mql.java.ui.models;
 
 import java.util.List;
+import java.util.Vector;
 
 public class ClassData {
 	
@@ -11,14 +12,11 @@ public class ClassData {
 	
 	public ClassData(long id) {
 		super();
-		this.id = id;
+		this.setId(id);
+		fields = new Vector<>();
+		methods = new Vector<>();
 	}
 	
-/*
- * 
- * 
- * 
- * */
 
 
 	public ClassData(String className, List<String> fields, List<String> methods) {
@@ -45,6 +43,12 @@ public class ClassData {
 	}
 	public void setMethods(List<String> methods) {
 		this.methods = methods;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	

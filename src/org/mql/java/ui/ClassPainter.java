@@ -30,7 +30,7 @@ public class ClassPainter {
 		setMaxLength();
 		this.x=area.getX();
 		this.y=area.getY();
-		area.set(maxWidth, 70 + maxHeightMethods + maxHeightFields);
+		area.set(maxWidth, 120 + maxHeightMethods + maxHeightFields);
 		liaison = new PointLiaison(x,y, maxWidth, 70 + maxHeightMethods + maxHeightFields);
 	
 
