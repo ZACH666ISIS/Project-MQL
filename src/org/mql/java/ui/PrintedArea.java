@@ -20,8 +20,8 @@ public class PrintedArea {
 		super();
 		this.maxXe = 0;
 		this.maxYe = 0;
-		this.height = height;
-		this.width = width;
+		this.setHeight(height);
+		this.setWidth(width);
 		this.refXe = refXe;
 		this.refYe = refYe;
 		this.dim = dim;
@@ -87,6 +87,18 @@ public class PrintedArea {
 	}
 	public void setDim(Dimension dim) {
 		this.dim = dim;
+	}
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
 	}
 	
 

@@ -8,6 +8,7 @@ import java.util.Vector;
 import javax.swing.JPanel;
 import org.mql.java.ui.loader.XMLLoader;
 import org.mql.java.ui.models.PackageData;
+import org.mql.java.ui.models.Relation;
 
 public class ClassSketch extends JPanel{
 	
@@ -16,30 +17,49 @@ public class ClassSketch extends JPanel{
 	
 	  private Dimension d;
 	  private PrintedArea area;
+	  private List<ClassPainter> classes;
 	  public ClassSketch() {
 		
 		 d = new Dimension(1600, 0);
-		 repaint();				
-		
+		 classes = new Vector<>();
+		repaint();
 	 }
 	 public void paintComponent(Graphics g){
 		 area = new PrintedArea(40,40,d);
-		 List<PackageData> packages = new Vector<>();
+		 List<PackageData> packages ;
+		 List<Relation> relations;
 		 XMLLoader loader = new XMLLoader("resources/document.xml");
-		 packages.addAll(loader.getPackages());
+		 packages = loader.getPackages();
+		 relations = loader.getRelations();
 		 PackagePainter p;
 		 
+	
 		 for(PackageData packageData : packages) {
 			 p = new PackagePainter(packageData, area);
 			 p.paintPackage(g);
 			 area.newPackage(40,area.getMaxY()+80);
+			 classes.addAll(p.getClasses());
 		 }
-		
-		 setPreferredSize(new Dimension(d.width , area.getDim().height));
+		 
+		 for(Relation r : relations) {
+			 ClassPainter cp1 = getClassPaint(r.getId1()),
+					      cp2 = getClassPaint(r.getId2());
+			 if(cp1 != null && cp2 != null) {
+				 RelationPainter rp = new RelationPainter(cp1, cp2);
+				 rp.etablishRelation(g);
+			 }
+		 }
+		 setPreferredSize(new Dimension(d.width , area.getDim().height + 50));
 	 	 
 	 }
 
-	
+	private ClassPainter getClassPaint(long id) {
+		for(ClassPainter cp : classes) {
+			if(cp.getId() == id)
+			return cp;
+		}
+		return null;
+	}
 
 	 
 }

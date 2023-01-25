@@ -46,7 +46,7 @@ public class Example {
 	}
 	
 	void exp04() {
-		XMIPersister p = new XMIPersister("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin","resources/XMIDoc.xml");
+		XMIPersister p = new XMIPersister("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin","resources/XMIDoc.xml");	
 	}
 	
 	public static void main(String[] args) {

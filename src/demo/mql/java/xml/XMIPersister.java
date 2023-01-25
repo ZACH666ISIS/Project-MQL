@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 import demo.mql.java.parser.XMIParser;
-import demo.mql.java.parser.XMIParserS;
 
 
 public class XMIPersister {

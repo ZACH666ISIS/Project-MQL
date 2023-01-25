@@ -1,5 +1,5 @@
 package demo.mql.java.models.assotiation;
 
-public enum AssotiationType {
+public enum AssociationType {
 	INHERITANCE,IMPLEMENTATION,ASSOCIATION
 }

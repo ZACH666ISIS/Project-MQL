@@ -10,7 +10,6 @@ import java.util.Vector;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EParameter;
@@ -188,7 +187,6 @@ public class XMIParser {
 	private EOperation createMethod(Method m) {
 		EOperation op = ecoreFactory.createEOperation();
 		op.setName(m.getName());
-		String s = m.getGenericReturnType().getTypeName();
 
 		for(Parameter p : m.getParameters()) {
 			op.getEParameters().add(createParameter(p));

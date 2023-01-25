@@ -19,7 +19,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 
-
 public class ObjectPersister {
 	
 	private Document document;
@@ -51,13 +50,14 @@ public class ObjectPersister {
 	private void addObjects(List<?> o,String s) {
 		root.appendChild(createObjects(o,s));
 	}
+	private void addObject(Object o) {
+		root.appendChild(createObject(o));
+	}
 
 	public void setObject(Object o) {
 			root = createObject(o);	
 	}
-	private void addObject(Object o) {
-		root.appendChild(createObject(o));
-	}
+
 	public void save() {
 		createFile();
 	}

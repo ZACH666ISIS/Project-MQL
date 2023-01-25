@@ -1,6 +1,6 @@
 package demo.mql.java.parser;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Vector;
 
@@ -13,10 +13,10 @@ import demo.mql.java.models.ClassModel;
 import demo.mql.java.models.EnumModel;
 import demo.mql.java.models.InterfaceModel;
 import demo.mql.java.models.PackageModel;
-import demo.mql.java.models.assotiation.AssotiationType;
+import demo.mql.java.models.assotiation.AssociationType;
 import demo.mql.java.models.assotiation.Values;
 
-@SuppressWarnings("rawtypes")
+
 public class RelationsParser {
 
 	/**
@@ -76,7 +76,7 @@ public class RelationsParser {
 		List<Association> as = new Vector<>();
 		for(InterfaceModel in : c.getImplemented()) {
 			Association a = new Association();
-			a.setType(AssotiationType.IMPLEMENTATION);
+			a.setType(AssociationType.IMPLEMENTATION);
 			a.setSon(c.getId());
 			a.setParent(in.getId());
 			as.add(a);
@@ -88,7 +88,7 @@ public class RelationsParser {
 		List<Association> as = new Vector<>();
 		for(InterfaceModel in : e.getImplementedEnums()) {
 			Association a = new Association();
-			a.setType(AssotiationType.IMPLEMENTATION);
+			a.setType(AssociationType.IMPLEMENTATION);
 			a.setSon(e.getId());
 			a.setParent(in.getId());
 			as.add(a);
@@ -100,7 +100,7 @@ public class RelationsParser {
 		List<Association> as = new Vector<>();
 		for(InterfaceModel in : i.getExtentedInterface()) {
 			Association a = new Association();
-			a.setType(AssotiationType.INHERITANCE);
+			a.setType(AssociationType.INHERITANCE);
 			a.setSon(i.getId());
 			a.setParent(in.getId());
 			as.add(a);
@@ -110,7 +110,7 @@ public class RelationsParser {
 	
 	private Association getGeneralisation(ClassModel c) {
 		Association a = new Association();
-		a.setType(AssotiationType.INHERITANCE);
+		a.setType(AssociationType.INHERITANCE);
 		a.setSon(c.getId());
 		a.setParent(c.getExtended().getId());
 		return a;
@@ -147,7 +147,7 @@ public class RelationsParser {
 			pv.setUpperValue(parent);
 			pv.setLowerValue(Cardinal.NONE);
 			a.setParentValue(pv);
-			a.setType(AssotiationType.ASSOCIATION);
+			a.setType(AssociationType.ASSOCIATION);
 			associations.add(a);
 		}
 		

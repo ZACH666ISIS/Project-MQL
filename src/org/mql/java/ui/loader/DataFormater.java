@@ -13,5 +13,21 @@ public abstract class DataFormater {
 		else
 			return '-';
 	}
+	
+	protected boolean modifier(String m) {
+		m = m.toUpperCase();
+		if(m.equals("STATIC")) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isStatic(XMLNode obj) {
+		XMLNode n = obj.child("modifier");
+		if(n != null) {
+			return modifier(n.value());
+		}
+		return false;
+	}
 
 }

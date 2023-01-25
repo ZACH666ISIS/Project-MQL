@@ -1,8 +1,8 @@
 package org.mql.java.ui;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.util.List;
+import java.util.Vector;
 
 import org.mql.java.ui.models.ClassData;
 import org.mql.java.ui.models.PackageData;
@@ -11,6 +11,7 @@ public class PackagePainter {
 	
 	private String packageName;
 	private List<ClassData> classes;
+	private List<ClassPainter> clsPainter;
 	private PrintedArea area;
 	
 	
@@ -24,7 +25,7 @@ public class PackagePainter {
 		this.packageName = p.getPackageName();
 		this.classes = p.getClasses();
 		this.area = area;
-		;
+		clsPainter = new Vector<>();
 	}
 	
 	
@@ -37,11 +38,17 @@ public class PackagePainter {
 		for(ClassData cls : classes) {
 			cp = new ClassPainter(cls, area);
 			cp.paintClass(g);
+			clsPainter.add(cp);
 	
 		}
 		g.drawString(packageName, x0, y0);
 		g.drawRect(x0 , y0 , area.getMaxX() + 10,  area.getMaxY()-y0 +10 );
 		
+	}
+	
+	
+	public List<ClassPainter> getClasses(){
+		return clsPainter;
 	}
 	
 	

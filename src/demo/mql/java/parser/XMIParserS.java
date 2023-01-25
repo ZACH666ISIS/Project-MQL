@@ -18,6 +18,8 @@ import org.mql.java.parser.ClassExplorer;
  * No Package Nested
  *
  */
+
+@SuppressWarnings("rawtypes")
 public class XMIParserS {
 	private List<EPackage> packages;
 	private List<Class> cls;

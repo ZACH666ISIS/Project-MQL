@@ -20,9 +20,9 @@ public class PointLiaison {
 
 	private void setValues(int x ,int y ,int width,int height) {
 		left.x = x;
-		left.y = (y+height)/2;
-		right.x = (x+width);
-		right.y = (y+height)/2;
+		left.y = y+(height/2);
+		right.x = x+width;
+		right.y = y+(height/2);
 		top.x = x/2;
 		top.y = y;
 		bottom.x = x/2;

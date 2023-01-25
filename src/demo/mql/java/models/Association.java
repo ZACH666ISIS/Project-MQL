@@ -1,7 +1,7 @@
 package demo.mql.java.models;
 
 import demo.mql.java.models.Association;
-import demo.mql.java.models.assotiation.AssotiationType;
+import demo.mql.java.models.assotiation.AssociationType;
 import demo.mql.java.models.assotiation.Values;
 
 public class Association {
@@ -11,7 +11,7 @@ public class Association {
 	private long parent;	
 	private Values sonValue;
 	private Values parentValue;
-	private AssotiationType type;
+	private AssociationType type;
 	
 	public long getId() {
 		return id;
@@ -43,10 +43,10 @@ public class Association {
 	public void setParentValue(Values parentValue) {
 		this.parentValue = parentValue;
 	}
-	public AssotiationType getType() {
+	public AssociationType getType() {
 		return type;
 	}
-	public void setType(AssotiationType type) {
+	public void setType(AssociationType type) {
 		this.type = type;
 	}
 

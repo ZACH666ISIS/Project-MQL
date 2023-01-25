@@ -8,7 +8,7 @@ public class Attribute {
 	private long id;
 	private String name;
 	private String type;
-	private EModifiers modifiers;
+	private EModifiers modifier;
 	private Visibility visibility;
 	private boolean isList;
 	private long idRef;
@@ -19,14 +19,14 @@ public class Attribute {
 		this.id = id;
 	}
 	
-	public Attribute(long id, String name, String type, EModifiers modifiers, Visibility visibility,
+	public Attribute(long id, String name, String type, EModifiers modifier, Visibility visibility,
 			boolean isList,
 			long idRef) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.type = type;
-		this.modifiers =  modifiers;
+		this.modifier =  modifier;
 		this.visibility = visibility;
 		this.isList = isList;
 		this.idRef = idRef;
@@ -57,10 +57,10 @@ public class Attribute {
 		this.type = type;
 	}
 	public EModifiers getModificator() {
-		return modifiers;
+		return modifier;
 	}
-	public void setModificator(EModifiers modifiers) {
-		this.modifiers = modifiers;
+	public void setModificator(EModifiers modifier) {
+		this.modifier = modifier;
 	}
 	public Visibility getVisibility() {
 		return visibility;

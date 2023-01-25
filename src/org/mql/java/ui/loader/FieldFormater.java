@@ -10,8 +10,11 @@ public class FieldFormater extends DataFormater {
 		if(b) {
 			s.append("[]");
 		}
+
 		return s.toString();
 	}
+	
+
 	
 	
 
