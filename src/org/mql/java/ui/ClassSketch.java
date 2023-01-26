@@ -17,7 +17,7 @@ public class ClassSketch extends JPanel{
 	
 	  private Dimension d;
 	  private PrintedArea area;
-	  private List<ClassPainter> classes;
+	  private List<Painter> classes;
 	  public ClassSketch() {
 		
 		 d = new Dimension(1600, 0);
@@ -38,11 +38,11 @@ public class ClassSketch extends JPanel{
 			 p = new PackagePainter(packageData, area);
 			 p.paintPackage(g);
 			 area.newPackage(40,area.getMaxY()+80);
-			 classes.addAll(p.getClasses());
+			 classes.addAll(p.getPainters());
 		 }
 		 
 		 for(Relation r : relations) {
-			 ClassPainter cp1 = getClassPaint(r.getId1()),
+			 Painter cp1 = getClassPaint(r.getId1()),
 					      cp2 = getClassPaint(r.getId2());
 			 if(cp1 != null && cp2 != null) {
 				 RelationPainter rp = new RelationPainter(cp1, cp2);
@@ -53,8 +53,8 @@ public class ClassSketch extends JPanel{
 	 	 
 	 }
 
-	private ClassPainter getClassPaint(long id) {
-		for(ClassPainter cp : classes) {
+	private Painter getClassPaint(long id) {
+		for(Painter cp : classes) {
 			if(cp.getId() == id)
 			return cp;
 		}

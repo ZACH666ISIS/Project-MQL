@@ -1,130 +1,175 @@
 package org.mql.java.models;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+
 import java.util.List;
 
-@SuppressWarnings("rawtypes")
+import org.mql.java.enums.EModifiers;
+import org.mql.java.enums.Visibility;
+
+
 public class ClassModel {
 
-	private int id;
+	private long id;
 	private String name,
 				   simpleName;
+	private Visibility visibility;
+	private EModifiers modificator;
+	private List<Attribute> attributes;
+	private List<ConstructorModel> constructors;
+	private List<MethodModel> methods;
+	private List<InterfaceModel> implemented;
+	private ClassModel extended;
+	
+	
+	public ClassModel(long id) {
+		this.id =id;
+	}
+
+
+	
+	public ClassModel(long id, String name, String simpleName, Visibility visibility,
+			EModifiers modificator) {
+		this.id=id;
+		this.name=name;
+		this.simpleName=simpleName;
+		this.visibility =visibility;
+		this.modificator = modificator;
+	}
+
+
+
+	public ClassModel(long id, List<Attribute> attribute, List<ConstructorModel> constructors, List<MethodModel> methods,
+			List<InterfaceModel> implemented,
+			ClassModel extended) {
+		this.id=id;
+		this.attributes = attribute;
+		this.constructors = constructors;
+		this.methods = methods;
+		this.implemented = implemented;
+		this.extended = extended;
+
+	}
+
+	public ClassModel(  long id, 
+						String name, 
+						String simpleName,
+						Visibility visibility,
+						EModifiers modificator,
+						List<Attribute> attribute,
+						List<ConstructorModel> constructors,
+						List<MethodModel> methods,
+						List<InterfaceModel> implemented,
+						ClassModel extended) {
+		this.id=id;
+		this.name=name;
+		this.simpleName=simpleName;
+		this.visibility =visibility;
+		this.modificator = modificator;
+		this.attributes = attribute;
+		this.constructors = constructors;
+		this.methods = methods;
+		this.implemented = implemented;
+		this.extended = extended;
+	}
+
+
+	
+	public long getId() {
+		return id;
+	}
+
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
 	public String getSimpleName() {
 		return simpleName;
 	}
+
+
 
 	public void setSimpleName(String simpleName) {
 		this.simpleName = simpleName;
 	}
 
-	private ClassType type;
-	private Class extended;
-	private Package classPackage;
-	private List<Field> properties;
-	private List<Constructor> constructors;
-	private List<Method> methods;
-	private List<Class> implemented;
-	
-	
-	public ClassModel() {
 
-	}
-		
-	public ClassModel(int id) {
-		super();
-		this.id = id;
-	}
-	
-	public ClassModel(int id,
-					  String name,
-					  String simpleName,
-					  ClassType type,
-					  Class extended,
-					  Package classPackage,
-					  List<Field> properties,
-					  List<Constructor> constructors,
-					  List<Method> methods,
-					  List<Class> implemented) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.simpleName = simpleName;
-		this.type = type;
-		this.extended = extended;
-		this.classPackage = classPackage;
-		this.properties = properties;
-		this.constructors = constructors;
-		this.methods = methods;
-		this.implemented = implemented;
+
+	public Visibility getVisibility() {
+		return visibility;
 	}
 
-	public int getId() {
-		return id;
+
+
+	public void setVisibility(Visibility visibility) {
+		this.visibility = visibility;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+
+	public EModifiers getModificator() {
+		return modificator;
 	}
 
-	public Package getClassPackage() {
-		return classPackage;
+
+
+	public void setModificator(EModifiers modificator) {
+		this.modificator = modificator;
 	}
 
-	public void setClassPackage(Package classPackage) {
-		this.classPackage = classPackage;
-	}
 
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public ClassType getType() {
-		return type;
-	}
-	public void setType(ClassType type) {
-		this.type = type;
-	}
 
-	public Class getExtended() {
-		return extended;
+	public List<Attribute> getAttributes() {
+		return attributes;
 	}
-	public void setExtended(Class extended) {
-		this.extended = extended;
+	public void setAttribute(List<Attribute> attribute) {
+		this.attributes = attribute;
 	}
-	public List<Field> getProperties() {
-		return properties;
-	}
-	public void setProperties(List<Field> properties) {
-		this.properties = properties;
-	}
-	public List<Constructor> getConstructors() {
+	public List<ConstructorModel> getConstructors() {
 		return constructors;
 	}
-	public void setConstructors(List<Constructor> constructors) {
+	public void setConstructors(List<ConstructorModel> constructors) {
 		this.constructors = constructors;
 	}
-	public List<Method> getMethods() {
+	public List<MethodModel> getMethods() {
 		return methods;
 	}
-	public void setMethods(List<Method> methods) {
+	public void setMethods(List<MethodModel> methods) {
 		this.methods = methods;
 	}
-	public List<Class> getImplemented() {
+
+	public List<InterfaceModel> getImplemented() {
 		return implemented;
 	}
-	public void setImplemented(List<Class> implemented) {
+	public void setImplemented(List<InterfaceModel> implemented) {
 		this.implemented = implemented;
 	}
 
-	@Override
+	public ClassModel getExtended() {
+		return extended;
+	}
+	public void setExtended(ClassModel extended) {
+		this.extended = extended;
+	}
+
 	public String toString() {
-		return "ClassModel [name=" + name + ", type=" + type + ", extended=" + extended + ", classPackage="
-				+ classPackage + ", properties=" + properties + ", constructors=" + constructors + ", methods="
-				+ methods + ", implemented=" + implemented + "]";
+		return "ClassModel [id=" + id + ", name=" + name + ", simpleName=" + simpleName + ", extended=" + extended
+				+ "]";
 	}
 
 	

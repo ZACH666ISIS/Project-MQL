@@ -6,13 +6,13 @@ import java.awt.Graphics;
 public class RelationPainter {
 	
 	
-	private ClassPainter c1,c2;
+	private Painter c1,c2;
 	
 	
 	public RelationPainter() {
 	}
 	
-	public RelationPainter(ClassPainter c1, ClassPainter c2) {
+	public RelationPainter(Painter c1, Painter c2) {
 		this.c1 = c1;
 		this.c2 = c2;
 	}

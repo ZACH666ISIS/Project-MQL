@@ -9,7 +9,7 @@ import org.mql.java.ui.models.ClassData;
 import org.mql.java.ui.models.PointLiaison;
 import org.mql.java.ui.models.Propertie;
 
-public class ClassPainter {
+public class ClassPainter implements Painter{
 	
 	private long id;
 	private String className;
@@ -43,7 +43,7 @@ public class ClassPainter {
 		maxHeightMethods = methods.size()*20;
 	}
 	
-	public void paintClass(Graphics g) {
+	public void paint(Graphics g) {
 		int cursor = y;
 		g.setColor(Color.BLACK);
         g.drawRect(x,y, maxWidth, 70 + maxHeightMethods + maxHeightFields);
@@ -59,19 +59,23 @@ public class ClassPainter {
 	private void printClass(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("Helvetica", Font.BOLD, 18));
-		g.drawString(className, x+10, y+g.getFontMetrics().getHeight());
+		//text center
+		int center = maxWidth/2;
+		center -= (g.getFontMetrics(g.getFont()).stringWidth(className))/2;
+		g.drawString(className, x+center, y+g.getFontMetrics().getHeight());
 
 	}
 	private void printFields(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.setFont(new Font("TimesRoman", Font.BOLD, 12));
-		
 		int fy =y+40+g.getFontMetrics().getHeight();
 		for (Propertie f : fields) {
 			g.drawString(f.value, x+10, fy += g.getFontMetrics().getHeight());
 			if(f.isStatic) {
 				g.drawLine(x+10, fy + 2, x + g.getFontMetrics(g.getFont()).stringWidth(f.value)+6, fy + 2);
+				
 			}
+			
 		}
 			
 			

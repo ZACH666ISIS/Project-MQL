@@ -5,13 +5,17 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mql.java.ui.models.ClassData;
+import org.mql.java.ui.models.EnumData;
+import org.mql.java.ui.models.InterfaceData;
 import org.mql.java.ui.models.PackageData;
 
 public class PackagePainter {
 	
 	private String packageName;
 	private List<ClassData> classes;
-	private List<ClassPainter> clsPainter;
+	private List<InterfaceData> interfaces;
+	private List<EnumData> enums;
+	private List<Painter> clsPainter;
 	private PrintedArea area;
 	
 	
@@ -24,6 +28,8 @@ public class PackagePainter {
 	public PackagePainter(PackageData p,PrintedArea area) {
 		this.packageName = p.getPackageName();
 		this.classes = p.getClasses();
+		this.enums = p.getEnumes();
+		this.interfaces = p.getInterfaces();
 		this.area = area;
 		clsPainter = new Vector<>();
 	}
@@ -34,20 +40,31 @@ public class PackagePainter {
 		int x0 = area.getX() - 15,
 			y0 = area.getY() - 15;
 	
-		ClassPainter cp;
+		Painter p;
 		for(ClassData cls : classes) {
-			cp = new ClassPainter(cls, area);
-			cp.paintClass(g);
-			clsPainter.add(cp);
+			p = new ClassPainter(cls, area);
+			p.paint(g);
+			clsPainter.add(p);
 	
 		}
+		for(EnumData enm : enums) {
+			p = new EnumPainter(enm, area);
+			p.paint(g);
+			clsPainter.add(p);
+		}
+		for(InterfaceData intr : interfaces) {
+			p = new InterfacePainter(intr,area);
+			p.paint(g);
+			clsPainter.add(p);
+		}
+		
 		g.drawString(packageName, x0, y0);
 		g.drawRect(x0 , y0 , area.getMaxX() + 10,  area.getMaxY()-y0 +10 );
 		
 	}
 	
 	
-	public List<ClassPainter> getClasses(){
+	public List<Painter> getPainters(){
 		return clsPainter;
 	}
 	

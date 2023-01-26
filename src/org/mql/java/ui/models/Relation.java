@@ -1,6 +1,6 @@
 package org.mql.java.ui.models;
 
-import demo.mql.java.models.assotiation.AssociationType;
+import org.mql.java.models.assotiation.AssociationType;
 
 public class Relation {
 	

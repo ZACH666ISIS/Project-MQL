@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mql.java.ui.models.ClassData;
+import org.mql.java.ui.models.EnumData;
+import org.mql.java.ui.models.InterfaceData;
 import org.mql.java.ui.models.Propertie;
 import org.mql.java.ui.models.Relation;
 import org.mql.java.ui.models.PackageData;
@@ -36,9 +38,22 @@ public class XMLLoader {
 	private void packageData(XMLNode[] pkgs) {
 		for(XMLNode pkg : pkgs) {
 			PackageData data = new PackageData(pkg.longAttribute("id"));
-			data.setClasses(classData(pkg.child("classes").children()));
+			XMLNode classes = pkg.child("classes");
 			data.setPackageName(pkg.attribute("name"));
-			packages.add(data);
+			if(classes != null) {
+				data.setClasses(classData(classes.children()));
+				packages.add(data);
+			}
+			classes = pkg.child("enumes");
+			if(classes != null) {
+				data.setEnumes(enumData(classes.children()));
+				packages.add(data);
+			}
+			classes = pkg.child("interfaces");
+			if(classes != null) {
+				data.setInterfaces(interFaceData(classes.children()));
+				packages.add(data);
+			}
 			if(pkg.child("packages") != null) {
 				packageData(pkg.child("packages").children());
 			}
@@ -60,6 +75,44 @@ public class XMLLoader {
 			cls.add(myc);
 		}
 		return cls;
+	}
+	private List<EnumData> enumData(XMLNode[] enums){
+		List<EnumData> enm = new Vector<>();
+		for(XMLNode e : enums) {
+			EnumData newEnum = new EnumData();
+			newEnum.setName(e.attribute("simpleName"));
+			newEnum.setId(e.longAttribute("id"));
+			XMLNode elements = e.child("elements");
+			if(elements != null) {
+				newEnum.setElements(getNamesElements(elements.children()));
+			}
+			enm.add(newEnum);
+		}
+		return enm;
+	}
+	
+	private List<InterfaceData> interFaceData(XMLNode[] interfaces){
+		List<InterfaceData> itrs = new Vector<>();
+		for(XMLNode i : interfaces) {
+			InterfaceData newInterface = new InterfaceData();
+			newInterface.setName(i.attribute("simpleName"));
+			newInterface.setId(i.longAttribute("id"));
+			XMLNode methods = i.child("methods");
+			if(methods != null) {
+				newInterface.setMethods(operationData(methods.children()));
+			}
+			itrs.add(newInterface);
+
+		}
+		return itrs;
+	}
+	
+	private List<String> getNamesElements(XMLNode[] elements){
+		List<String> data = new Vector<>();
+		for(XMLNode e : elements) {
+			data.add(e.value());
+		}
+		return data;
 	}
 	
 	private List<Propertie> fieldData(XMLNode[] fields){

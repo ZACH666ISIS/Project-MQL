@@ -1,14 +1,14 @@
 package org.mql.java.example;
 
 import java.io.File;
-import demo.mql.java.parser.RelationsParser;
+
+import org.mql.java.models.ProjectModel;
+import org.mql.java.parser.ProjectParser;
+import org.mql.java.parser.RelationsParser;
 import org.mql.java.ui.MainFrame;
 import org.mql.java.ui.loader.XMLLoader;
-
-import demo.mql.java.models.ProjectModel;
-import demo.mql.java.parser.ProjectParser;
-import demo.mql.java.xml.ObjectPersister;
-import demo.mql.java.xml.XMIPersister;
+import org.mql.java.xml.ObjectPersister;
+import org.mql.java.xml.XMIPersister;
 
 
 /**
@@ -23,7 +23,7 @@ public class Example {
 	}
 	
 	void exp01() {
-		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\eclipse-workspace\\JTraining\\bin");
+		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin");
 		p.parse();
 		RelationsParser rp = new RelationsParser();
 		rp.setPackages(p.getPackages());
