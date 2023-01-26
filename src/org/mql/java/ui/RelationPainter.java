@@ -2,23 +2,68 @@ package org.mql.java.ui;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
+
+import org.mql.java.ui.models.PointLiaison;
 
 public class RelationPainter {
 	
 	
-	private Painter c1,c2;
-	
+	private PointLiaison p1,p2;
+	private Point rp1,rp2;
 	
 	public RelationPainter() {
 	}
 	
 	public RelationPainter(Painter c1, Painter c2) {
-		this.c1 = c1;
-		this.c2 = c2;
+		this.p1 = c1.getLiaison();
+		this.p2 = c2.getLiaison();
+		verifyPosition();
+	}
+	
+	private void verifyPosition() {
+		int refX1 = p1.getLeft().x,
+			refX2 = p2.getLeft().x,
+			refY1 = p1.getTop().y,
+			refY2 = p2.getTop().y;
+		if((refX1 - refX2 < 0) && (refY1 - refY2) <0) {
+			rp1 = p1.getRight();
+			rp2 = p2.getLeft();
+		}
+		else if((refX1 - refX2 > 0) && (refY1 - refY2) >0) {
+			rp1 = p1.getLeft();
+			rp2 = p2.getRight();
+		}
+		else if((refX1 - refX2 < 0) && (refY1 - refY2) >0) {
+			rp1 = p1.getRight();
+			rp2 = p2.getBottom();
+		}
+		else if((refX1 - refX2 > 0) && (refY1 - refY2) <0) {
+			rp1 = p1.getBottom();
+			rp2 = p2.getLeft();
+		}
+		else if((refX1 - refX2 == 0) && (refY1 - refY2) <0) {
+			rp1 = p1.getBottom();
+			rp2 = p2.getTop();
+		}
+		else if((refX1 - refX2 == 0) && (refY1 - refY2) >0) {
+			rp1 = p1.getTop();
+			rp2 = p2.getBottom();
+		}
+		else if((refX1 - refX2 > 0) && (refY1 - refY2) == 0) {
+			rp1 = p1.getLeft();
+			rp2 = p2.getRight();
+		}
+		else if((refX1 - refX2 < 0) && (refY1 - refY2) == 0) {
+			rp1 = p1.getRight();
+			rp2 = p2.getLeft();
+		}
+		// else same class (thorw error)
+
 	}
 
 	public void etablishRelation(Graphics g) {
 		g.setColor(Color.RED);
-		g.drawLine(c1.getLiaison().getRight().x, c1.getLiaison().getRight().y, c2.getLiaison().getLeft().x, c2.getLiaison().getLeft().y);
+		g.drawLine(rp1.x, rp1.y, rp2.x, rp2.y);
 	}
 }

@@ -23,10 +23,10 @@ public class PointLiaison {
 		left.y = y+(height/2);
 		right.x = x+width;
 		right.y = y+(height/2);
-		top.x = x/2;
+		top.x = x+(width/2);
 		top.y = y;
-		bottom.x = x/2;
-		bottom.y = y;
+		bottom.x = x+(width/2);
+		bottom.y = y+height;
 		
 	}
 
