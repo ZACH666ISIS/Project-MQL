@@ -3,6 +3,7 @@ package org.mql.java.ui.loader;
 import java.util.List;
 import java.util.Vector;
 
+import org.mql.java.models.assotiation.AssociationType;
 import org.mql.java.ui.models.ClassData;
 import org.mql.java.ui.models.EnumData;
 import org.mql.java.ui.models.InterfaceData;
@@ -144,6 +145,10 @@ public class XMLLoader {
 		Relation rel =  new Relation();
 		rel.setId1(relation.longAttribute("parent"));
 		rel.setId2(relation.longAttribute("son"));
+		XMLNode type = relation.child("type");
+		if(type != null) {
+			rel.setType(AssociationType.valueOf(type.value()));
+		}
 		return rel;
 	}
 

@@ -22,6 +22,8 @@ public class Example {
 		exp03();
 	}
 	
+
+	
 	void exp01() {
 		ProjectParser p = new ProjectParser("C:\\Users\\Zach\\Projects_JAVA\\UML-Generator\\bin");
 		p.parse();
@@ -37,9 +39,6 @@ public class Example {
 
 	}
 	
-	void exp02() {
-		XMLLoader loader = new XMLLoader("resources/document.xml");
-	}
 	
 	void exp03() {
 		new MainFrame();

@@ -45,8 +45,8 @@ public class ClassSketch extends JPanel{
 			 Painter cp1 = getClassPaint(r.getId1()),
 					      cp2 = getClassPaint(r.getId2());
 			 if(cp1 != null && cp2 != null) {
-				 RelationPainter rp = new RelationPainter(cp1, cp2);
-				 rp.etablishRelation(g);
+				 RelationPainter rp = new RelationPainter(cp2, cp1);
+				 rp.etablishRelation(g, r.getType());
 			 }
 		 }
 		 setPreferredSize(new Dimension(d.width , area.getDim().height + 50));

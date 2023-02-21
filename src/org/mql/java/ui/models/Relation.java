@@ -20,7 +20,7 @@ public class Relation {
 		super();
 		this.id1 = id1;
 		this.id2 = id2;
-		this.type = type;
+		this.setType(type);
 	}
 	
 	
@@ -38,6 +38,14 @@ public class Relation {
 	}
 	public long getId2() {
 		return id2;
+	}
+
+	public AssociationType getType() {
+		return type;
+	}
+
+	public void setType(AssociationType type) {
+		this.type = type;
 	}
 	
 }

@@ -46,9 +46,7 @@ public class XMIPersister {
 			PrintWriter printer = new PrintWriter(new File(output));
 			printer.print(stringWriter);
 			printer.close();
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-		}
+		} catch (Exception e) {}
 	}
 
 	

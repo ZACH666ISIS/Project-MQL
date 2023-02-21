@@ -7,7 +7,6 @@ public class ProjectModel {
 	private List<Association> associations;
 	
 	public ProjectModel() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<PackageModel> getPackages() {

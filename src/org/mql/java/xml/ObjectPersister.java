@@ -47,6 +47,8 @@ public class ObjectPersister {
 //	private void addObjects(List<?> o) {
 //		root.appendChild(createObjects(o,o.getClass().getSimpleName()));
 //	}
+	
+
 	private void addObjects(List<?> o,String s) {
 		root.appendChild(createObjects(o,s));
 	}
@@ -83,7 +85,6 @@ public class ObjectPersister {
 			Object newObj = getValue(f, o);
 			if(newObj != null) {
 				 if(List.class.isAssignableFrom(f.getType())){
-					
 					List<?> objects = (List<?>) newObj;
 					if(objects != null) {
 						Element elm = null;
@@ -112,7 +113,6 @@ public class ObjectPersister {
 						elm.appendChild(txt);
 						e.appendChild(elm);		
 				}
-			
 			}			
 		}
 		return e;

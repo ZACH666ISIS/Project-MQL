@@ -5,9 +5,9 @@ import java.awt.Point;
 public class PointLiaison {
 	
 	private Point left,
-				  right,
-				  top,
-				  bottom;
+		      right,
+		      top,
+		      bottom;
 
 	public PointLiaison(int x,int y ,int width,int height) {
 		super();
