@@ -34,9 +34,7 @@ public class ClassExplorer{
 				classLoaded.add(urlClassLoader.loadClass(className));
 			return classLoaded;
 		}
-		catch (Exception e) {
-			return null;
-		}
+		catch (Exception e) {return classLoaded;}
 	}
 	
 	

@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="demo.mql.java.enums">
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.enums.DataType">
+      <eOperations name="values"/>
+      <eOperations name="valueOf">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="BOOLEAN"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="BYTE"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="CHAR"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="SHORT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="INT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="LONG"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FLOAT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DOUBLE"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENUM$VALUES"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.enums.EModifiers">
+      <eOperations name="values"/>
+      <eOperations name="valueOf">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="FINAL"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="STATIC"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ABSTRACT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENUM$VALUES"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.enums.Visibility">
+      <eOperations name="values"/>
+      <eOperations name="valueOf">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DEFAULT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PUBLIC"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PROTECTED"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="PRIVATE"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENUM$VALUES"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="demo.mql.java.models">
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.Assotiation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstM"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="secondM"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.Attribute">
+      <eOperations name="getName"/>
+      <eOperations name="setName">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getId"/>
+      <eOperations name="getType"/>
+      <eOperations name="getModificator"/>
+      <eOperations name="getIdRef"/>
+      <eOperations name="setModificator">
+        <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      </eOperations>
+      <eOperations name="setType">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getVisibility"/>
+      <eOperations name="isList"/>
+      <eOperations name="setId">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eOperations>
+      <eOperations name="setIdRef">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eOperations>
+      <eOperations name="setVisibility">
+        <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      </eOperations>
+      <eOperations name="setList">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiers"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isList"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="idRef"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.ClassModel">
+      <eOperations name="getName"/>
+      <eOperations name="toString"/>
+      <eOperations name="getSimpleName"/>
+      <eOperations name="getMethods"/>
+      <eOperations name="getConstructors"/>
+      <eOperations name="setName">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getId"/>
+      <eOperations name="getAttributes"/>
+      <eOperations name="setAttribute">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getModificator"/>
+      <eOperations name="setModificator">
+        <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      </eOperations>
+      <eOperations name="getVisibility"/>
+      <eOperations name="setId">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eOperations>
+      <eOperations name="setVisibility">
+        <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      </eOperations>
+      <eOperations name="setImplemented">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setSimpleName">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getExtended"/>
+      <eOperations name="getImplemented"/>
+      <eOperations name="setExtended">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setMethods">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setConstructors">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="simpleName"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modificator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modificator" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributes"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constructors"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="methods"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="implemented"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="extended"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.ConstructorModel">
+      <eOperations name="getId"/>
+      <eOperations name="getParameters"/>
+      <eOperations name="setParameters">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getVisibility"/>
+      <eOperations name="setId">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eOperations>
+      <eOperations name="getModifier"/>
+      <eOperations name="setModifier">
+        <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      </eOperations>
+      <eOperations name="setVisibility">
+        <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifier" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.EnumModel">
+      <eOperations name="getName"/>
+      <eOperations name="getSimpleName"/>
+      <eOperations name="getId"/>
+      <eOperations name="getElements"/>
+      <eOperations name="getImplementedEnums"/>
+      <eOperations name="setImplementedEnums">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getModificator"/>
+      <eOperations name="getVisibility"/>
+      <eOperations name="setElements">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="simpleName"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modificator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modificator" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elements"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementedEnums"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.InterfaceModel">
+      <eOperations name="getName"/>
+      <eOperations name="getSimpleName"/>
+      <eOperations name="getMethods"/>
+      <eOperations name="getId"/>
+      <eOperations name="setExtentedInterface">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getExtentedInterface"/>
+      <eOperations name="getModificator"/>
+      <eOperations name="getVisibility"/>
+      <eOperations name="setMethods">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="simpleName"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modificator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modificator" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="extentedInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="methods"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.MethodModel">
+      <eOperations name="getName"/>
+      <eOperations name="getReturnType"/>
+      <eOperations name="getId"/>
+      <eOperations name="getParameters"/>
+      <eOperations name="setParameters">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getVisibility"/>
+      <eOperations name="setId">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eOperations>
+      <eOperations name="setReturnType">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getModifier"/>
+      <eOperations name="setModifier">
+        <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      </eOperations>
+      <eOperations name="setVisibility">
+        <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifier" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.EModifiers"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.PackageModel">
+      <eOperations name="getName"/>
+      <eOperations name="getInterfaces"/>
+      <eOperations name="getClasses"/>
+      <eOperations name="addClass">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="getPackages"/>
+      <eOperations name="setName">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getId"/>
+      <eOperations name="addPackage">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setId">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eOperations>
+      <eOperations name="addPackagees">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="addClasses">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setClasses">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="addInterface">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.InterfaceModel"/>
+      </eOperations>
+      <eOperations name="addInterfaces">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setInterfaces">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setEnumes">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="addEnumes">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getEnumes"/>
+      <eOperations name="addEnum">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.EnumModel"/>
+      </eOperations>
+      <eOperations name="setPackages">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="classes"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaces"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumes"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="packages"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.ProjectModel">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="packages"/>
+    </eClassifiers>
+    <eSubpackages name="demo.mql.java.models.assotiation">
+      <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.assotiation.Agregation"/>
+      <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.assotiation.AssotiationType">
+        <eOperations name="values"/>
+        <eOperations name="valueOf">
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="INHERITANCE"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="IMPLEMENTATION"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="COMPOSITION"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="AGREGATION"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENUM$VALUES"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.assotiation.Composition"/>
+      <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.assotiation.Implementation"/>
+      <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.models.assotiation.Inheritance"/>
+    </eSubpackages>
+  </ecore:EPackage>
+  <ecore:EPackage name="demo.mql.java.parser">
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.parser.Converter">
+      <eOperations name="getInterfaces">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getFields">
+        <eParameters/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eOperations name="getFields">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getMethods">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getGenericType">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getGenericType">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getParameter">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="nativeType">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getModificator">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getModificator">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getModificator">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="getVisibility">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getVisibility">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="getVisibility">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="isList">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="toClassModel">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getConstuctors">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getExtends">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="idGenerator">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="toInterfaceModel">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="toPackageModel">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="toConstructorModel">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="toAttribute">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="toMethodModel">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="toEnumModel">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="positiveNumber">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.parser.DemoProjectParser">
+      <eOperations name="addClass">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getPackages"/>
+      <eOperations name="parse"/>
+      <eOperations name="packageIndex">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setEClass">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageModels"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cls"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.parser.ProjectParser">
+      <eOperations name="getPackage">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+      </eOperations>
+      <eOperations name="getPackage">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="addClass">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getPackages"/>
+      <eOperations name="parse"/>
+      <eOperations name="addPackage">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="otherSubPackages">
+        <eParameters/>
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+      </eOperations>
+      <eOperations name="isSame">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+      </eOperations>
+      <eOperations name="getSubPackages">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="checkPackages">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="checkIfExists">
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/1/demo.mql.java.models.PackageModel"/>
+      </eOperations>
+      <eOperations name="addClassToPackage">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageModels"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cls"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.parser.XMIParser">
+      <eOperations name="getPackage">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getPackage">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="addClass">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getPackages"/>
+      <eOperations name="parse"/>
+      <eOperations name="createEClass">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="addPackage">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="otherSubPackages">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="isSame">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="isSame">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getSubPackages">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="searchClassifier">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="checkPackages">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createRef">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createField">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createEPackage">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="checkIfExists">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="addClassToPackage">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createMethod">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createParameter">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="packages"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cls"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ecoreFactory"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.parser.XMIParserS">
+      <eOperations name="getPackages"/>
+      <eOperations name="parse"/>
+      <eOperations name="createEClass">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="isSame">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="searchClassifier">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createRef">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createField">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createEPackage">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getEPackage">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="isExist">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setPackages">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="packages"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cls"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ecoreFactory"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="demo.mql.java.xml">
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.xml.ObjectPersister">
+      <eOperations name="getValue">
+        <eParameters/>
+        <eParameters/>
+      </eOperations>
+      <eOperations name="init"/>
+      <eOperations name="save"/>
+      <eOperations name="isNative">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createFile"/>
+      <eOperations name="createObject">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createObject">
+        <eParameters/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="addObjects">
+        <eParameters/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="addObject">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createObjects">
+        <eParameters/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="isNativeObjects">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createNativeObject">
+        <eParameters/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="isString">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="document"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="root"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="file"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="demo.mql.java.xml.XMIPersister">
+      <eOperations name="persiste"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ePackages"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="output"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="org.mql.java.example">
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.example.Example">
+      <eOperations name="main">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="exp03"/>
+      <eOperations name="exp02"/>
+      <eOperations name="exp04"/>
+      <eOperations name="exp01"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="org.mql.java.models">
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.models.Cardinal">
+      <eOperations name="values"/>
+      <eOperations name="valueOf">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="NONE"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ONCE"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="UNBOUNDED"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENUM$VALUES"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.models.ClassModel">
+      <eOperations name="getName"/>
+      <eOperations name="toString"/>
+      <eOperations name="getSimpleName"/>
+      <eOperations name="getMethods"/>
+      <eOperations name="getConstructors"/>
+      <eOperations name="getProperties"/>
+      <eOperations name="setProperties">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setName">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getId"/>
+      <eOperations name="getType"/>
+      <eOperations name="setType">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setId">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="setImplemented">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setSimpleName">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getExtended"/>
+      <eOperations name="getImplemented"/>
+      <eOperations name="setExtended">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setMethods">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setConstructors">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getClassPackage"/>
+      <eOperations name="setClassPackage">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="simpleName"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="extended"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="classPackage"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="properties"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constructors"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="methods"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="implemented"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.models.ClassType">
+      <eOperations name="values"/>
+      <eOperations name="valueOf">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DEFAULT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="INTERFACE"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENUM"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="DATATYPE"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENUM$VALUES"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.models.Relation">
+      <eOperations name="toString"/>
+      <eOperations name="getType"/>
+      <eOperations name="getFirst"/>
+      <eOperations name="getSecond"/>
+      <eOperations name="getSecondCard"/>
+      <eOperations name="getFirstCard"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="first"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="second"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="second" eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstCard"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="firstCard" eType="ecore:EClass test.ecore#/5/org.mql.java.models.Cardinal"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="secondCard"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="secondCard" eType="ecore:EClass test.ecore#/5/org.mql.java.models.Cardinal"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.models.RelationType">
+      <eOperations name="values"/>
+      <eOperations name="valueOf">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="GENERALIZATION"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="IMPLEMENTATION"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ASSOCIATION"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="BIDIRECTIONAL"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ENUM$VALUES"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="org.mql.java.parser">
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.parser.ClassExplorer">
+      <eOperations name="getFoundedClasses"/>
+      <eOperations name="getClassesNames">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="classesNames"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="absolutPath"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.parser.ClassParser">
+      <eOperations name="getClasses"/>
+      <eOperations name="getType">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="parse"/>
+      <eOperations name="getExtends">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="classes"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cls"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.parser.RelationParser">
+      <eOperations name="getClasses"/>
+      <eOperations name="fieldType">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setImplementationsRel">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="wired"/>
+      <eOperations name="searchAssociation">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="setAssociationsRel">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="isAssociation">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="isImplementation">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="isInHeritance">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="setInHeritanceRel">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="etablishRelations">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eOperations name="getRelations"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="classes"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="relations"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="org.mql.java.test">
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.test.Test">
+      <eOperations name="main">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="exp01"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="org.mql.java.ui">
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.ClassPainter">
+      <eOperations name="printClass">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="getLiaison"/>
+      <eOperations name="paintClass">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="setMaxLength"/>
+      <eOperations name="printFields">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="printMethods">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="className"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fields"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="methods"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxHeightFields"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxHeightMethods"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxWidth"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="y"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="liaison"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="area"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineX"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineY"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.ClassSketch">
+      <eOperations name="paintComponent">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serialVersionUID"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="d"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="area"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.Container">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serialVersionUID"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.MainFrame"/>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.PackagePainter">
+      <eOperations name="paintPackage">
+        <eParameters/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="classes"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="area"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.PrintedArea">
+      <eOperations name="set">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="newPackage">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="getY"/>
+      <eOperations name="isVisible">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="getX"/>
+      <eOperations name="getMaxY"/>
+      <eOperations name="getMaxX"/>
+      <eOperations name="setY">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="setX">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="refXe"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="refYe"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="height"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="width"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxYe"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxXe"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dim"/>
+    </eClassifiers>
+    <eSubpackages name="org.mql.java.ui.controller">
+      <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.controller.Listener">
+        <eOperations name="adjustmentValueChanged">
+          <eParameters/>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="pane"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="frame"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="org.mql.java.ui.models">
+      <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.models.ClassData">
+        <eOperations name="getFields"/>
+        <eOperations name="getMethods"/>
+        <eOperations name="getClassName"/>
+        <eOperations name="setFields">
+          <eParameters/>
+        </eOperations>
+        <eOperations name="setMethods">
+          <eParameters/>
+        </eOperations>
+        <eOperations name="setClassName">
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="className"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="fields"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="methods"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.models.ClassElement">
+        <eOperations name="isStatic"/>
+        <eOperations name="getContent"/>
+        <eOperations name="getVisibility"/>
+        <eOperations name="setVisibility">
+          <eParameters eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+        </eOperations>
+        <eOperations name="setContent">
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eOperations>
+        <eOperations name="setStatic">
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="content"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStatic"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="ecore:EClass test.ecore#/0/demo.mql.java.enums.Visibility"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.models.PackageData">
+        <eOperations name="getPackageName"/>
+        <eOperations name="getClasses"/>
+        <eOperations name="setClasses">
+          <eParameters/>
+        </eOperations>
+        <eOperations name="setPackageName">
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="classes"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.ui.models.PointLiaison">
+        <eOperations name="getRight"/>
+        <eOperations name="setBottom">
+          <eParameters/>
+        </eOperations>
+        <eOperations name="setValues">
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+          <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        </eOperations>
+        <eOperations name="getLeft"/>
+        <eOperations name="setLeft">
+          <eParameters/>
+        </eOperations>
+        <eOperations name="getTop"/>
+        <eOperations name="setTop">
+          <eParameters/>
+        </eOperations>
+        <eOperations name="setRight">
+          <eParameters/>
+        </eOperations>
+        <eOperations name="getBottom"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="left"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="right"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="top"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="bottom"/>
+      </eClassifiers>
+    </eSubpackages>
+  </ecore:EPackage>
+  <ecore:EPackage name="org.mql.java.xml">
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.xml.DOMPersister">
+      <eOperations name="init"/>
+      <eOperations name="attribute">
+        <eParameters/>
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="createFile"/>
+      <eOperations name="createClassRelation">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.Cardinal"/>
+      </eOperations>
+      <eOperations name="fillRelations">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="fillPackages">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="createPackage">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="searchPackage">
+        <eParameters eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="createClass">
+        <eParameters eType="ecore:EClass test.ecore#/5/org.mql.java.models.ClassModel"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="document"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="root"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="struct"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationsElm"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="org.mql.java.xml.Test">
+      <eOperations name="main">
+        <eParameters/>
+      </eOperations>
+      <eOperations name="exp1"/>
+    </eClassifiers>
+  </ecore:EPackage>
+</xmi:XMI>
